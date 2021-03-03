@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Marvel</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="charactersList_fragment_label">Marvel Characters</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="txt_dummy">Some Text</string>
+
+
+</resources>
