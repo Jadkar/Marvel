@@ -3,7 +3,7 @@ package com.globant.openbankassignment.ui.charactersdetails
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.data.model.Item
+import com.globant.openbankassignment.data.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeItemBinding
 
 class CharacterDetailsTypeItemAdapter(

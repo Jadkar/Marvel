@@ -1,9 +1,9 @@
-package com.globant.openbankassignment.data.model
+package com.globant.openbankassignment.data.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Item {
+class StoriesItem {
     @SerializedName("resourceURI")
     @Expose
     var resourceURI: String? = null
@@ -11,5 +11,9 @@ class Item {
     @SerializedName("name")
     @Expose
     var name: String? = null
+
+    @SerializedName("type")
+    @Expose
+    var type: String? = null
 
 }

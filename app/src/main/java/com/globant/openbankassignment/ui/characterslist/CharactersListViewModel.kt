@@ -2,7 +2,7 @@ package com.globant.openbankassignment.ui.characterslist
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.globant.openbankassignment.data.model.MarvelCharactersResponse
+import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.domain.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.ui.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers

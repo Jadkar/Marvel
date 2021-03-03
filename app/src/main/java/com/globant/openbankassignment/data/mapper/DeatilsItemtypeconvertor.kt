@@ -1,6 +1,6 @@
 package com.globant.openbankassignment.data.mapper
 
-import com.globant.openbankassignment.data.model.*
+import com.globant.openbankassignment.data.entity.*
 
 object DeatilsItemtypeconvertor {
 

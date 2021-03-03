@@ -15,8 +15,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.globant.openbankassignment.data.model.MarvelCharactersResponse
-import com.globant.openbankassignment.data.model.Result
+import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
+import com.globant.openbankassignment.data.entity.Result
 import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil
 import dagger.android.support.AndroidSupportInjection

@@ -9,7 +9,7 @@ import com.bumptech.glide.Priority
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.globant.openbankassignment.R
-import com.globant.openbankassignment.data.model.Result
+import com.globant.openbankassignment.data.entity.Result
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 
 class CharactersAdapter(

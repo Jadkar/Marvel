@@ -8,7 +8,7 @@
 
         <variable
             name="resultData"
-            type="com.globant.openbankassignment.data.model.Result" />
+            type="com.globant.openbankassignment.data.entity.Result" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

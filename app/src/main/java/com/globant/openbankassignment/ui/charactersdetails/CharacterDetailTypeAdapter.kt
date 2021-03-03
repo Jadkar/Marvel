@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
 import com.globant.openbankassignment.data.mapper.CharactersDeatilsType
 import com.globant.openbankassignment.data.mapper.DeatilsItemtypeconvertor
-import com.globant.openbankassignment.data.model.Item
+import com.globant.openbankassignment.data.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
 
 class CharacterDetailTypeAdapter(
