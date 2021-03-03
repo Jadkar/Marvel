@@ -2,6 +2,7 @@ package com.globant.openbankassignment.ui.charactersdetails
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
+import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.ui.characterslist.CharactersListActivity
 import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil
@@ -25,12 +27,13 @@ import javax.inject.Inject
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class CharactersDetailsFragment : Fragment() {
+class CharactersDetailsFragment : BaseFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var characterDetailTypeAdapter: CharacterDetailTypeAdapter
     private lateinit var viewModel: CharactersDetailsViewModel
+    private  var characterId:Int=0
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
@@ -53,7 +56,8 @@ class CharactersDetailsFragment : Fragment() {
         viewModel =
             ViewModelProviders.of(this, viewModelFactory)
                 .get(CharactersDetailsViewModel::class.java)
-        getCharactersDetailsList(arguments?.getInt(ConstantKey.ARGUM_CHARACTERID)!!)
+        characterId=arguments?.getInt(ConstantKey.ARGUM_CHARACTERID)!!
+        getCharactersDetailsList()
         (activity as CharactersListActivity).supportActionBar?.title =
             arguments?.getString(ConstantKey.ARGUM_CHARACTERNAME)
                 ?: getString(R.string.charactersList_fragment_label)
@@ -79,9 +83,17 @@ class CharactersDetailsFragment : Fragment() {
         characterDetailTypeAdapter.notifyDataSetChanged()
     }
 
-    private fun getCharactersDetailsList(characterId: Int) {
+    private fun getCharactersDetailsList() {
         if (InternetUtil.isInternetConnected()) {
             viewModel.getCharactersDetails(characterId)
+        }else{
+            showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
+
+            InternetUtil.observe(this, Observer { status ->
+                if (status != null && status) {
+                    viewModel.getCharactersDetails(characterId)
+                }
+            })
         }
     }
 

@@ -17,16 +17,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.data.entity.Result
+import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_charactres.*
+import kotlinx.android.synthetic.main.fragment_characters.*
 import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class CharactersListFragment : Fragment(), OnCharactersItemClick {
+class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
     private lateinit var viewModel: CharactersListViewModel
     private lateinit var charactersAdapter: CharactersAdapter
@@ -92,6 +93,13 @@ class CharactersListFragment : Fragment(), OnCharactersItemClick {
     private fun getCharactersList() {
         if (InternetUtil.isInternetConnected()) {
             viewModel.getCharactersList(0)
+        }else{
+            showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
+            InternetUtil.observe(this, Observer { status ->
+                if (status != null && status) {
+                    viewModel.getCharactersList(0)
+                }
+            })
         }
     }
 
@@ -103,6 +111,7 @@ class CharactersListFragment : Fragment(), OnCharactersItemClick {
 
     private fun handleViewState(marvelCharactersResponse: MarvelCharactersResponse) {
         charactersAdapter.setCharactersData(marvelCharactersResponse.data?.results ?: emptyList())
+
     }
 
     override fun onCharacterSelected(result: Result?) {
