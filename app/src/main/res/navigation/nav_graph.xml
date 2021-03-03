@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/CharacterListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
+        android:id="@+id/CharacterListFragment"
         android:name="com.globant.openbankassignment.ui.characterslist.CharactersListFragment"
         android:label="@string/charactersList_fragment_label"
-        tools:layout="@layout/fragment_charactres">
+        tools:layout="@layout/fragment_characters">
 
         <action
             android:id="@+id/action_CharacterFragment_to_CharacterDetailsFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/CharacterDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/CharacterDetailsFragment"
         android:name="com.globant.openbankassignment.ui.charactersdetails.CharactersDetailsFragment"
         android:label="@string/charactersList_fragment_label"
         tools:layout="@layout/fragment_characters_details">

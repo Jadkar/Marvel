@@ -48,7 +48,7 @@ class CharactersListFragment : Fragment(), OnCharactersItemClick {
         savedInstanceState: Bundle?
     ): View? {
         val mBinding = DataBindingUtil.inflate<ViewDataBinding>(
-            inflater, R.layout.fragment_charactres,
+            inflater, R.layout.fragment_characters,
             container, false
         )
         return mBinding.root
