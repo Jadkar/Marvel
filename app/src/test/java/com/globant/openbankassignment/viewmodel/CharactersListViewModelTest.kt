@@ -1,13 +1,11 @@
 package com.globant.openbankassignment.viewmodel
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.data.mapper.CharacterListMapper
 import com.globant.openbankassignment.data.source.remote.MarvelApi
-import com.globant.openbankassignment.domain.repository.GetCharactersRepositoryImpl
+import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.testutil.InstantExecutorExtension
 import com.globant.openbankassignment.testutil.LiveDataTestUtil
 import com.globant.openbankassignment.testutil.RxImmediateSchedulerRule
@@ -59,7 +57,10 @@ class CharactersListViewModelTest {
         MockKAnnotations.init(this)
 
         service = mockkClass(MarvelApi::class)
-        getCharactersRepositoryImpl = GetCharactersRepositoryImpl(service)
+        getCharactersRepositoryImpl =
+            GetCharactersRepositoryImpl(
+                service
+            )
         marvelCharactersResponse = mockkClass(MarvelCharactersResponse::class)
         charactersListViewModel = CharactersListViewModel(getCharactersRepositoryImpl)
         charactersResponse =charactersListViewModel.charactersResponse

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.data.mapper.CharacterListMapper
-import com.globant.openbankassignment.domain.repository.GetCharactersRepositoryImpl
+import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.ui.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver

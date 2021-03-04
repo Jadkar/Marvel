@@ -1,7 +1,8 @@
-package com.globant.openbankassignment.domain.repository
+package com.globant.openbankassignment.data.repository
 
 import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.data.source.remote.MarvelApi
+import com.globant.openbankassignment.domain.repository.GetCharactersRepository
 import io.reactivex.Observable
 import javax.inject.Inject
 

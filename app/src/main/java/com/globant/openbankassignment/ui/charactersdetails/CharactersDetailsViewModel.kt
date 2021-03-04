@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
 import com.globant.openbankassignment.data.mapper.CharactersDeatilsType
 import com.globant.openbankassignment.data.entity.*
-import com.globant.openbankassignment.domain.repository.GetCharacterDetailsRepositoryImpl
+import com.globant.openbankassignment.data.repository.GetCharacterDetailsRepositoryImpl
 import com.globant.openbankassignment.ui.base.BaseViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
