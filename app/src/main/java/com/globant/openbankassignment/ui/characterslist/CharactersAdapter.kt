@@ -10,6 +10,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.data.entity.Result
+import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
+import com.globant.openbankassignment.data.mapper.CharacterListMapper
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 
 class CharactersAdapter(
@@ -17,7 +19,7 @@ class CharactersAdapter(
     private val onCharactersItemClick: OnCharactersItemClick
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
-    private var characterList: List<Result> = emptyList()
+    private var characterList: List<CharacterListMapper> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersListHolder {
 
@@ -34,7 +36,7 @@ class CharactersAdapter(
 
     override fun getItemCount(): Int = characterList.size
 
-    fun setCharactersData(characterList: List<Result>) {
+    fun setCharactersData(characterList: List<CharacterListMapper>) {
         this.characterList = characterList
         notifyDataSetChanged()
     }
@@ -44,14 +46,14 @@ class CharactersAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(resultData: Result?, onCharactersItemClick: OnCharactersItemClick) {
-            itemRowBinding.tvCharacterTitle.text = resultData?.name
-            itemRowBinding.tvCharacterDescription.text = resultData?.description
+        fun bind(resultData: CharacterListMapper?, onCharactersItemClick: OnCharactersItemClick) {
+            itemRowBinding.tvCharacterTitle.text = resultData?.charcterName
+            itemRowBinding.tvCharacterDescription.text = resultData?.characterDescription
 
             itemView.setOnClickListener {
                 onCharactersItemClick.onCharacterSelected(resultData)
             }
-            val thumbUrl = resultData?.thumbnail?.path + "." + resultData?.thumbnail?.extension
+            val thumbUrl = resultData?.characterUrl
             val options = RequestOptions()
 
                 .error(R.drawable.marvel)

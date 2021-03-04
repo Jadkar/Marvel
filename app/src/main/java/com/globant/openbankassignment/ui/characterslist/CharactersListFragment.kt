@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.data.entity.Result
+import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
+import com.globant.openbankassignment.data.mapper.CharacterListMapper
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil
@@ -124,15 +126,15 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         })
     }
 
-    private fun handleViewState(marvelCharactersResponse: MarvelCharactersResponse) {
-        charactersAdapter.setCharactersData(marvelCharactersResponse.data?.results ?: emptyList())
+    private fun handleViewState(characterMapperList: List<CharacterListMapper>) {
+        charactersAdapter.setCharactersData(characterMapperList)
 
     }
 
-    override fun onCharacterSelected(result: Result?) {
+    override fun onCharacterSelected(result: CharacterListMapper?) {
         var bundle = bundleOf(
-            ConstantKey.ARGUM_CHARACTERID to result?.id,
-            ConstantKey.ARGUM_CHARACTERNAME to result?.name
+            ConstantKey.ARGUM_CHARACTERID to result?.characterId,
+            ConstantKey.ARGUM_CHARACTERNAME to result?.charcterName
         )
         view?.findNavController()
             ?.navigate(R.id.action_CharacterFragment_to_CharacterDetailsFragment, bundle)

@@ -44,7 +44,7 @@ class CharactersDetailsViewModel @Inject constructor(private val repository: Get
 
     }
 
-    fun getCharactersDetailsMapper(marvelCharactersResponse: MarvelCharactersResponse): List<CharacterDetailsMapper> {
+   private fun getCharactersDetailsMapper(marvelCharactersResponse: MarvelCharactersResponse): List<CharacterDetailsMapper> {
 
 
         var characterDetailsMapper = ArrayList<CharacterDetailsMapper>()
