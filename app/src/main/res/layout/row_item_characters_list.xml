@@ -10,7 +10,7 @@
             type="String" />
         <variable
             name="characterList"
-            type="com.globant.openbankassignment.data.uimodel.CharacterListMapper" />
+            type="com.globant.openbankassignment.domain.uimodel.CharacterListUiModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

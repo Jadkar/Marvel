@@ -9,7 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.globant.openbankassignment.R
 
 
-class CharacterListMapper {
+class CharacterListUiModel {
     var characterName: String? = null
     var characterDescription: String? = null
     var characterUrl: String? = null

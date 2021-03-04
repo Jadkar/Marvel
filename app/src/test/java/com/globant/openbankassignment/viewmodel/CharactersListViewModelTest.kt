@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
-import com.globant.openbankassignment.domain.uimodel.CharacterListMapper
+import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.data.source.remote.MarvelApi
 import com.globant.openbankassignment.testutil.InstantExecutorExtension
@@ -54,10 +54,10 @@ class CharactersListViewModelTest {
     val ruleForLiveData = InstantTaskExecutorRule()
 
     @MockK
-    var charactersResponse: MutableLiveData<List<CharacterListMapper>> = MutableLiveData()
+    var charactersResponse: MutableLiveData<List<CharacterListUiModel>> = MutableLiveData()
 
     @Mock
-    lateinit var mockLiveDataObserver: Observer<List<CharacterListMapper>>
+    lateinit var mockLiveDataObserver: Observer<List<CharacterListUiModel>>
 
     @MockK
     private lateinit var getCharactersRepositoryImpl: GetCharactersRepositoryImpl
@@ -84,10 +84,10 @@ class CharactersListViewModelTest {
     @Throws(Exception::class)
     fun observeLiveDataMarvelResposneNotNull() {
         // Arrange
-        val liveDataTestUtil: LiveDataTestUtil<List<CharacterListMapper>> = LiveDataTestUtil()
+        val liveDataTestUtil: LiveDataTestUtil<List<CharacterListUiModel>> = LiveDataTestUtil()
 
         // Act
-        val currentWeather: LiveData<List<CharacterListMapper>> =
+        val currentWeather: LiveData<List<CharacterListUiModel>> =
             charactersListViewModel.charactersResponse
 
         // Assert

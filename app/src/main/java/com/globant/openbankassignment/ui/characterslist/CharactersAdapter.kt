@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.BR
-import com.globant.openbankassignment.domain.uimodel.CharacterListMapper
+import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 
 class CharactersAdapter(
     private val onCharactersItemClick: OnCharactersItemClick
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
-    private var characterList: List<CharacterListMapper> = emptyList()
+    private var characterList: List<CharacterListUiModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersListHolder {
 
@@ -28,7 +28,7 @@ class CharactersAdapter(
 
     override fun getItemCount(): Int = characterList.size
 
-    fun setCharactersData(characterList: List<CharacterListMapper>) {
+    fun setCharactersData(characterList: List<CharacterListUiModel>) {
         this.characterList = characterList
         notifyDataSetChanged()
     }
@@ -38,7 +38,7 @@ class CharactersAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(resultData: CharacterListMapper?, onCharactersItemClick: OnCharactersItemClick) {
+        fun bind(resultData: CharacterListUiModel?, onCharactersItemClick: OnCharactersItemClick) {
 
             itemRowBinding.setVariable(BR.characterList, resultData)
             itemRowBinding.characterUrl = resultData?.characterUrl
