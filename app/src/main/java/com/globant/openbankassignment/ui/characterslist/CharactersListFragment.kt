@@ -15,9 +15,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
-import com.globant.openbankassignment.data.entity.Result
-import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
 import com.globant.openbankassignment.data.mapper.CharacterListMapper
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.ConstantKey
@@ -85,7 +82,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     }
 
     private fun initRecyclerView() {
-        charactersAdapter = CharactersAdapter(requireContext(), this)
+        charactersAdapter = CharactersAdapter( this)
 
         rvCharactersList.layoutManager = LinearLayoutManager(context)
         rvCharactersList.adapter = charactersAdapter
@@ -134,7 +131,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     override fun onCharacterSelected(result: CharacterListMapper?) {
         var bundle = bundleOf(
             ConstantKey.ARGUM_CHARACTERID to result?.characterId,
-            ConstantKey.ARGUM_CHARACTERNAME to result?.charcterName
+            ConstantKey.ARGUM_CHARACTERNAME to result?.characterName
         )
         view?.findNavController()
             ?.navigate(R.id.action_CharacterFragment_to_CharacterDetailsFragment, bundle)

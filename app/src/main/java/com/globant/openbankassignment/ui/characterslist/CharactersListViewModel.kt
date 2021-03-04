@@ -44,7 +44,7 @@ class CharactersListViewModel @Inject constructor( val repository: GetCharacters
         if (marvelCharactersResponse.data?.results?.size!! > 0 ){
             for (result in marvelCharactersResponse.data?.results!!){
                 var characterListMapper=CharacterListMapper()
-                characterListMapper.charcterName=result.name
+                characterListMapper.characterName=result.name
                 characterListMapper.characterId=result.id
                 characterListMapper.characterDescription=result.description
                 characterListMapper.characterUrl=result?.thumbnail?.path + "." + result?.thumbnail?.extension

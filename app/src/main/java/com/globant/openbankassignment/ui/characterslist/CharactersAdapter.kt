@@ -1,21 +1,13 @@
 package com.globant.openbankassignment.ui.characterslist
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
-import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
-import com.globant.openbankassignment.R
-import com.globant.openbankassignment.data.entity.Result
-import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
+import com.globant.openbankassignment.BR
 import com.globant.openbankassignment.data.mapper.CharacterListMapper
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 
 class CharactersAdapter(
-    val mContext: Context,
     private val onCharactersItemClick: OnCharactersItemClick
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
@@ -47,23 +39,13 @@ class CharactersAdapter(
         ) {
 
         fun bind(resultData: CharacterListMapper?, onCharactersItemClick: OnCharactersItemClick) {
-            itemRowBinding.tvCharacterTitle.text = resultData?.charcterName
-            itemRowBinding.tvCharacterDescription.text = resultData?.characterDescription
+
+            itemRowBinding.setVariable(BR.resultData, resultData)
+            itemRowBinding.characterUrl = resultData?.characterUrl
 
             itemView.setOnClickListener {
                 onCharactersItemClick.onCharacterSelected(resultData)
             }
-            val thumbUrl = resultData?.characterUrl
-            val options = RequestOptions()
-
-                .error(R.drawable.marvel)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .priority(Priority.HIGH)
-                .placeholder(R.drawable.marvel)
-            Glide.with(mContext)
-                .load(thumbUrl)
-                .apply(options)
-                .into(itemRowBinding.imgCharacters)
         }
     }
 
