@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.domain.repository.uimodel.CharacterDetailsMapper
-import com.globant.openbankassignment.domain.repository.uimodel.CharactersDeatilsType
-import com.globant.openbankassignment.domain.repository.uimodel.DeatilsItemtypeconvertor
+import com.globant.openbankassignment.domain.uimodel.CharacterDetailsMapper
+import com.globant.openbankassignment.domain.uimodel.CharactersDeatilsType
+import com.globant.openbankassignment.domain.uimodel.DeatilsItemtypeconvertor
 import com.globant.openbankassignment.data.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
 

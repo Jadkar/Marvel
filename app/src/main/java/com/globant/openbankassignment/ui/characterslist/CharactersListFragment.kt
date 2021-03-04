@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.globant.openbankassignment.domain.repository.uimodel.CharacterListMapper
+import com.globant.openbankassignment.domain.uimodel.CharacterListMapper
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil

@@ -1,6 +1,6 @@
 package com.globant.openbankassignment.ui.characterslist
 
-import com.globant.openbankassignment.domain.repository.uimodel.CharacterListMapper
+import com.globant.openbankassignment.domain.uimodel.CharacterListMapper
 
 interface OnCharactersItemClick {
 
