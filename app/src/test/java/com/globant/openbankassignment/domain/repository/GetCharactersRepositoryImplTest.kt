@@ -44,14 +44,13 @@ internal class GetCharactersRepositoryImplTest  {
         val mockListResponse = gson.fromJson(mockList, MarvelCharactersResponse::class.java)
 
         val mockedCharctersRepsonse=Observable.just(mockListResponse)
-        // every { mockedFile.getCurrentWeatherByZipCode(options as HashMap<String, String>)) } returns responseWeather
         Mockito.`when`(getCharactersRepositoryImpl.getCharacters(0))
             .thenReturn(
                 mockedCharctersRepsonse
             )
 
         var result=getCharactersRepositoryImpl.getCharacters(0)
-        //When getting the user name
+
         getCharactersRepositoryImpl.getCharacters(0).test().assertComplete()
         getCharactersRepositoryImpl.getCharacters(0).test().assertNoTimeout()
         Assert.assertEquals(mockedCharctersRepsonse, result)

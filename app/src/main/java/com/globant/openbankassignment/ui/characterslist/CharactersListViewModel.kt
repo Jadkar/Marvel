@@ -8,6 +8,7 @@ import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImp
 import com.globant.openbankassignment.domain.usecase.MarvelCharactersListUseCase
 import com.globant.openbankassignment.domain.usecase.MarvelCharactersListUseCaseImpl
 import com.globant.openbankassignment.ui.base.BaseViewModel
+import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers

@@ -17,7 +17,6 @@ import com.globant.openbankassignment.R
 import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.ui.characterslist.CharactersListActivity
-import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_characters_details.*
@@ -55,9 +54,9 @@ class CharactersDetailsFragment : BaseFragment() {
         viewModel =
             ViewModelProviders.of(this, viewModelFactory)
                 .get(CharactersDetailsViewModel::class.java)
-        characterId=arguments?.getLong(ConstantKey.ARGUM_CHARACTERID)!!
+        characterId=arguments?.getLong(CharactersListActivity.ARGUM_CHARACTERID)!!
         (activity as CharactersListActivity).supportActionBar?.title =
-            arguments?.getString(ConstantKey.ARGUM_CHARACTERNAME)
+            arguments?.getString(CharactersListActivity.ARGUM_CHARACTERNAME)
                 ?: getString(R.string.charactersList_fragment_label)
     }
 
@@ -72,7 +71,7 @@ class CharactersDetailsFragment : BaseFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         subscribeToViewModel()
-        Log.d("Arguments", arguments?.getInt(ConstantKey.ARGUM_CHARACTERID).toString())
+        Log.d("Arguments", arguments?.getInt(CharactersListActivity.ARGUM_CHARACTERID).toString())
     }
 
     private fun initRecyclerView() {

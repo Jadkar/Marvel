@@ -7,7 +7,6 @@ import java.util.*
 
 object DateHelper {
 
-
     fun getCurrentTimestamp(): String? {
         return SimpleDateFormat("yyyy-MM-dd HH:mm").format(
             Calendar

@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.ui.base.BaseFragment
-import com.globant.openbankassignment.utils.ConstantKey
 import com.globant.openbankassignment.utils.InternetUtil
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_characters.*
@@ -130,8 +129,8 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
     override fun onCharacterSelected(result: CharacterListUiModel?) {
         var bundle = bundleOf(
-            ConstantKey.ARGUM_CHARACTERID to result?.characterId,
-            ConstantKey.ARGUM_CHARACTERNAME to result?.characterName
+            CharactersListActivity.ARGUM_CHARACTERID to result?.characterId,
+            CharactersListActivity.ARGUM_CHARACTERNAME to result?.characterName
         )
         view?.findNavController()
             ?.navigate(R.id.action_CharacterFragment_to_CharacterDetailsFragment, bundle)

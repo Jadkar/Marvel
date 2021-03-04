@@ -16,4 +16,8 @@ class CharactersListActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
     }
 
+    companion object{
+        const val ARGUM_CHARACTERID="characterId"
+        const val ARGUM_CHARACTERNAME="characterName"
+    }
 }

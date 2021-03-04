@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
 import com.globant.openbankassignment.domain.usecase.MarvelCharacterDetailsUseCaseImpl
 import com.globant.openbankassignment.ui.base.BaseViewModel
+import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
@@ -25,6 +26,7 @@ class CharactersDetailsViewModel @Inject constructor(private val useCaseImpl: Ma
             }
 
             override fun onNext(t: List<CharacterDetailsUiModel>) {
+                var jsonCharaterList= Gson().toJson(t)
                 characterDetails.postValue(t)
             }
 
