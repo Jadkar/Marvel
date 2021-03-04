@@ -40,7 +40,7 @@ class CharactersAdapter(
 
         fun bind(resultData: CharacterListMapper?, onCharactersItemClick: OnCharactersItemClick) {
 
-            itemRowBinding.setVariable(BR.resultData, resultData)
+            itemRowBinding.setVariable(BR.characterList, resultData)
             itemRowBinding.characterUrl = resultData?.characterUrl
 
             itemView.setOnClickListener {

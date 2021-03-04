@@ -8,7 +8,7 @@
         <import type="android.view.View" />
 
         <variable
-            name="resultData"
+            name="characterDetails"
             type="com.globant.openbankassignment.data.mapper.CharacterDetailsMapper" />
     </data>
 
@@ -39,6 +39,7 @@
                 android:layout_gravity="center_vertical"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/dimen_22sp"
+                android:text="@{characterDetails.title}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/txt_dummy" />

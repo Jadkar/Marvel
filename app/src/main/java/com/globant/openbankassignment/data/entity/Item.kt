@@ -11,5 +11,4 @@ class Item {
     @SerializedName("name")
     @Expose
     var name: String? = null
-
 }

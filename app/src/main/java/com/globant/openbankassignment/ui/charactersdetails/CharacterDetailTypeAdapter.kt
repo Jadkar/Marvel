@@ -3,6 +3,7 @@ package com.globant.openbankassignment.ui.charactersdetails
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
@@ -43,7 +44,8 @@ class CharacterDetailTypeAdapter(
 
         fun bind(characterDetailsMapper: CharacterDetailsMapper) {
 
-            itemRowBinding.tvTitle.text = characterDetailsMapper.title
+            itemRowBinding.setVariable(BR.characterDetails,characterDetailsMapper)
+
             var listItem: List<Item> = emptyList()
             when (characterDetailsMapper.title) {
 

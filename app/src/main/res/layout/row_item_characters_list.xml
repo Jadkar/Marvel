@@ -9,7 +9,7 @@
             name="characterUrl"
             type="String" />
         <variable
-            name="resultData"
+            name="characterList"
             type="com.globant.openbankassignment.data.mapper.CharacterListMapper" />
     </data>
 
@@ -53,7 +53,7 @@
 
                 android:textSize="@dimen/dimen_22sp"
                 android:textStyle="bold"
-                android:text="@{resultData.characterName}"
+                android:text="@{characterList.characterName}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgCharacters" />
 
@@ -69,7 +69,7 @@
                 android:layout_marginRight="@dimen/dimen_5dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="@{resultData.characterDescription}"
+                android:text="@{characterList.characterDescription}"
                 app:layout_constraintStart_toStartOf="@+id/tvCharacterTitle"
                 app:layout_constraintTop_toBottomOf="@+id/tvCharacterTitle"
                 tools:text="@string/txt_dummy"

@@ -16,7 +16,6 @@ class CharacterListMapper {
     var characterId: Long? = null
 
     companion object {
-
         @JvmStatic
         @BindingAdapter("profileImage")
         fun loadImage(view: ImageView, imageUrl: String?) {
