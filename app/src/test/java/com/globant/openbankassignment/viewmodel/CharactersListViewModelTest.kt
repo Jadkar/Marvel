@@ -76,7 +76,7 @@ class CharactersListViewModelTest {
 
 
         marvelCharactersResponse = mockkClass(MarvelCharactersResponse::class)
-        charactersListViewModel = CharactersListViewModel(getCharactersRepositoryImpl)
+
 
     }
 
@@ -97,16 +97,6 @@ class CharactersListViewModelTest {
     @Test
     fun getMarvelCharactersData() {
 
-        val mockListResponse = getFakeResponse()
-        val exceptedResult = charactersListViewModel.getCharacterListMapper(mockListResponse)
-        val mockedCharactersResponse = Observable.just(mockListResponse)
-
-        every { getCharactersRepositoryImpl.getCharacters(0) } returns mockedCharactersResponse
-
-        charactersListViewModel.charactersResponse.observeForever(mockLiveDataObserver)
-        charactersListViewModel.getCharactersList(0)
-        val exceptedData = charactersListViewModel.charactersResponse.value
-        assertEquals(exceptedResult, exceptedData)
 
 
     }
