@@ -13,7 +13,7 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class CharactersListViewModel @Inject constructor(val useCaseCharactersList: MarvelCharactersListUseCaseImpl) :
+class CharactersListViewModel @Inject constructor(private val useCaseCharactersList: MarvelCharactersListUseCaseImpl) :
     BaseViewModel() {
 
     lateinit var disposableObserverCharacters: DisposableObserver<List<CharacterListUiModel>>

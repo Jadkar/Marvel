@@ -2,9 +2,7 @@ package com.globant.openbankassignment.domain.uimodel
 
 import com.globant.openbankassignment.data.entity.*
 
-object DeatilsItemtypeconvertor {
-
-
+object DetailCharacterConvertor {
 
      fun convertComicsItem(comicsItem:Comics):List<Item>{
 

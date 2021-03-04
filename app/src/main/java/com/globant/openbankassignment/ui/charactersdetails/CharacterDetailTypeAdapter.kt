@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.domain.uimodel.CharacterDetailsMapper
+import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
 import com.globant.openbankassignment.domain.uimodel.CharactersDeatilsType
-import com.globant.openbankassignment.domain.uimodel.DeatilsItemtypeconvertor
+import com.globant.openbankassignment.domain.uimodel.DetailCharacterConvertor
 import com.globant.openbankassignment.data.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
 
@@ -16,7 +16,7 @@ class CharacterDetailTypeAdapter(
     private val mContext: Context
 ) : RecyclerView.Adapter<CharacterDetailTypeAdapter.CharactersDetailsTypeHolder>() {
 
-    private var mCharacterDetailsMapperList: List<CharacterDetailsMapper> = emptyList()
+    private var mCharacterDetailsUiModelList: List<CharacterDetailsUiModel> = emptyList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersDetailsTypeHolder {
         val binding = RowItemCharacterDetailstypeBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -26,49 +26,49 @@ class CharacterDetailTypeAdapter(
         return CharactersDetailsTypeHolder(binding)
     }
 
-    fun setDetailsList(characterDetailsList: List<CharacterDetailsMapper>) {
-        this.mCharacterDetailsMapperList = characterDetailsList
+    fun setDetailsList(characterDetailsList: List<CharacterDetailsUiModel>) {
+        this.mCharacterDetailsUiModelList = characterDetailsList
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: CharactersDetailsTypeHolder, position: Int) {
-        holder.bind(mCharacterDetailsMapperList[position])
+        holder.bind(mCharacterDetailsUiModelList[position])
     }
 
-    override fun getItemCount(): Int = mCharacterDetailsMapperList.size
+    override fun getItemCount(): Int = mCharacterDetailsUiModelList.size
 
     inner class CharactersDetailsTypeHolder(private val itemRowBinding: RowItemCharacterDetailstypeBinding) :
         RecyclerView.ViewHolder(
             itemRowBinding.root
         ) {
 
-        fun bind(characterDetailsMapper: CharacterDetailsMapper) {
+        fun bind(characterDetailsUiModel: CharacterDetailsUiModel) {
 
-            itemRowBinding.setVariable(BR.characterDetails,characterDetailsMapper)
+            itemRowBinding.setVariable(BR.characterDetails,characterDetailsUiModel)
 
             var listItem: List<Item> = emptyList()
-            when (characterDetailsMapper.title) {
+            when (characterDetailsUiModel.title) {
 
                 CharactersDeatilsType.COMICS.value -> {
                     // handleComicsView()
                     listItem =
-                        DeatilsItemtypeconvertor.convertComicsItem(characterDetailsMapper.comics!!)
+                        DetailCharacterConvertor.convertComicsItem(characterDetailsUiModel.comics!!)
                 }
                 CharactersDeatilsType.SERIES.value -> {
                     listItem =
-                        DeatilsItemtypeconvertor.convertSeriesItem(characterDetailsMapper.series!!)
+                        DetailCharacterConvertor.convertSeriesItem(characterDetailsUiModel.series!!)
                 }
                 CharactersDeatilsType.STORIES.value -> {
                     listItem =
-                        DeatilsItemtypeconvertor.convertStoriesItem(characterDetailsMapper.stories!!)
+                        DetailCharacterConvertor.convertStoriesItem(characterDetailsUiModel.stories!!)
                 }
                 CharactersDeatilsType.EVENTS.value -> {
                     listItem =
-                        DeatilsItemtypeconvertor.convertEventsItem(characterDetailsMapper.events!!)
+                        DetailCharacterConvertor.convertEventsItem(characterDetailsUiModel.events!!)
                 }
                 CharactersDeatilsType.CHARACTERSDETAILSSOURCE.value -> {
                     listItem =
-                        DeatilsItemtypeconvertor.convertUrlsItem(characterDetailsMapper.urls!!)
+                        DetailCharacterConvertor.convertUrlsItem(characterDetailsUiModel.urls!!)
                 }
 
             }

@@ -2,7 +2,7 @@ package com.globant.openbankassignment.domain.uimodel
 
 import com.globant.openbankassignment.data.entity.*
 
-class CharacterDetailsMapper {
+class CharacterDetailsUiModel {
     var title: String? = null
     var comics: Comics? = null
     var series: Series? = null
