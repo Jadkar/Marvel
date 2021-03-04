@@ -3,6 +3,7 @@ package com.globant.openbankassignment.di.module
 import com.globant.openbankassignment.BuildConfig
 import com.globant.openbankassignment.data.source.remote.MarvelApi
 import com.globant.openbankassignment.utils.DateHelper
+import com.globant.openbankassignment.utils.HasKeyGenerator
 
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -34,11 +35,11 @@ class NetworkApiModule {
             val original = chain.request()
             val originalHttpUrl = original.url
 
-            //val publicKey = BuildConfig.MARVEL_API_PUBLIC_KEY
+
             val currentTimeStamp = DateHelper.getCurrentTimestamp()
             val haskKey =
                 currentTimeStamp + BuildConfig.MARVEL_API__PRIVATE_KEY + BuildConfig.MARVEL_API_PUBLIC_KEY
-            val calculatedHaskKey = DateHelper.calculateHash(haskKey)
+            val calculatedHaskKey = HasKeyGenerator.calculateHash(haskKey)
             val url = originalHttpUrl.newBuilder()
                 .addQueryParameter("ts", currentTimeStamp)
                 .addQueryParameter("apikey", BuildConfig.MARVEL_API_PUBLIC_KEY)
