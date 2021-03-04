@@ -30,7 +30,6 @@ class CharactersDetailsViewModel @Inject constructor(private val useCaseImpl: Ma
 
             override fun onError(e: Throwable) {
                 getCharacterDetailsFailure.postValue(e.message)
-                Log.d("MarvelCharactersRes", e.toString())
             }
         }
         useCaseImpl.getCharactersDetailsList(characterId)

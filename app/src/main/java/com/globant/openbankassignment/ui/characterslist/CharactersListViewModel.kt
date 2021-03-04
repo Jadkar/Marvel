@@ -25,10 +25,8 @@ class CharactersListViewModel @Inject constructor(private val useCaseCharactersL
 
         disposableObserverCharacters = object : DisposableObserver<List<CharacterListUiModel>>() {
             override fun onComplete() {
-                Log.d("MarvelCharactersRes", "onComplete")
             }
             override fun onError(e: Throwable) {
-                Log.d("MarvelCharactersRes", e.toString())
                 getCharactersFailure.postValue(e.message)
             }
 
