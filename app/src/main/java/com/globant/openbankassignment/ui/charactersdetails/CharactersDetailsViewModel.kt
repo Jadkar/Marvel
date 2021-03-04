@@ -2,8 +2,8 @@ package com.globant.openbankassignment.ui.charactersdetails
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
-import com.globant.openbankassignment.data.mapper.CharactersDeatilsType
+import com.globant.openbankassignment.domain.repository.uimodel.CharacterDetailsMapper
+import com.globant.openbankassignment.domain.repository.uimodel.CharactersDeatilsType
 import com.globant.openbankassignment.data.entity.*
 import com.globant.openbankassignment.data.repository.GetCharacterDetailsRepositoryImpl
 import com.globant.openbankassignment.ui.base.BaseViewModel

@@ -1,4 +1,4 @@
-package com.globant.openbankassignment.data.mapper
+package com.globant.openbankassignment.domain.repository.uimodel
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter

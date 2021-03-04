@@ -1,4 +1,4 @@
-package com.globant.openbankassignment.data.mapper
+package com.globant.openbankassignment.domain.repository.uimodel
 
 import com.globant.openbankassignment.data.entity.*
 

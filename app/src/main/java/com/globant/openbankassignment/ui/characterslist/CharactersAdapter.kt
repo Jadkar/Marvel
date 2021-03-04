@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.BR
-import com.globant.openbankassignment.data.mapper.CharacterListMapper
+import com.globant.openbankassignment.domain.repository.uimodel.CharacterListMapper
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 
 class CharactersAdapter(

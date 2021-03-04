@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.globant.openbankassignment.data.mapper.CharacterDetailsMapper
+import com.globant.openbankassignment.domain.repository.uimodel.CharacterDetailsMapper
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.ui.characterslist.CharactersListActivity
 import com.globant.openbankassignment.utils.ConstantKey
