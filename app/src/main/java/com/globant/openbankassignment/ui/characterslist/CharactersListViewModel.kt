@@ -13,6 +13,7 @@ import javax.inject.Inject
 class CharactersListViewModel @Inject constructor( val repository: GetCharactersRepositoryImpl):BaseViewModel() {
 
     private lateinit var disposableObserverCharacters: DisposableObserver<MarvelCharactersResponse>
+    var getCharactersFailure: MutableLiveData<String> = MutableLiveData()
 
      var charactersResponse: MutableLiveData<MarvelCharactersResponse> = MutableLiveData()
     fun getCharactersList(offSet:Int){
@@ -27,6 +28,7 @@ class CharactersListViewModel @Inject constructor( val repository: GetCharacters
            }
            override fun onError(e: Throwable) {
                Log.d("MarvelCharactersRes",e.toString())
+               getCharactersFailure.postValue(e.message)
            }
        }
         repository.getCharacters(offSet)

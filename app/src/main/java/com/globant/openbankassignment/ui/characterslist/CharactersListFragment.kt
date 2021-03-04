@@ -59,13 +59,14 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         super.onViewCreated(view, savedInstanceState)
 
         initRecyclerView()
+        getCharactersList()
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel =
             ViewModelProviders.of(this, viewModelFactory).get(CharactersListViewModel::class.java)
-        getCharactersList()
 
     }
 
@@ -84,19 +85,21 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     private fun initRecyclerView() {
         charactersAdapter = CharactersAdapter(requireContext(), this)
 
-        rv_charactersList.layoutManager = LinearLayoutManager(context)
-        rv_charactersList.adapter = charactersAdapter
+        rvCharactersList.layoutManager = LinearLayoutManager(context)
+        rvCharactersList.adapter = charactersAdapter
         charactersAdapter.notifyDataSetChanged()
 
     }
 
     private fun getCharactersList() {
         if (InternetUtil.isInternetConnected()) {
+            showLoadingIndicator(true)
             viewModel.getCharactersList(0)
         }else{
             showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
             InternetUtil.observe(this, Observer { status ->
                 if (status != null && status) {
+                    showLoadingIndicator(true)
                     viewModel.getCharactersList(0)
                 }
             })
@@ -105,7 +108,19 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
     private fun subscribeToViewModel() {
         viewModel.charactersResponse.observe(viewLifecycleOwner, Observer {
+            showLoadingIndicator(false)
             if (it != null) handleViewState(it)
+            else showAlertMessage("",getString(R.string.lbl_no_data))
+        })
+
+        viewModel.getCharactersFailure.observe(viewLifecycleOwner, Observer<String> {
+            showLoadingIndicator(false)
+            if (!InternetUtil.isInternetConnected())
+            {
+                showAlertMessage(getString(R.string.lbl_internet_title),getString(R.string.lbl_msg_no_internet_connection))
+            }else{
+                showAlertMessage(getString(R.string.lbl_error_msg),it)
+            }
         })
     }
 
@@ -121,5 +136,11 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         )
         view?.findNavController()
             ?.navigate(R.id.action_CharacterFragment_to_CharacterDetailsFragment, bundle)
+    }
+
+    private fun showLoadingIndicator(loading: Boolean) = if (loading) {
+        pbLoading.visibility = View.VISIBLE
+    } else {
+       pbLoading.visibility = View.GONE
     }
 }

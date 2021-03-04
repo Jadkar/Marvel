@@ -18,6 +18,8 @@ class CharactersDetailsViewModel @Inject constructor(private val repository: Get
     private lateinit var disposableCharacterDetails: DisposableObserver<MarvelCharactersResponse>
 
     var characterDetails: MutableLiveData<List<CharacterDetailsMapper>> = MutableLiveData()
+    var getCharacterDetailsFailure: MutableLiveData<String> = MutableLiveData()
+
     fun getCharactersDetails(characterId: Int) {
 
         disposableCharacterDetails = object : DisposableObserver<MarvelCharactersResponse>() {
@@ -31,6 +33,7 @@ class CharactersDetailsViewModel @Inject constructor(private val repository: Get
             }
 
             override fun onError(e: Throwable) {
+                getCharacterDetailsFailure.postValue(e.message)
                 Log.d("MarvelCharactersRes", e.toString())
             }
         }

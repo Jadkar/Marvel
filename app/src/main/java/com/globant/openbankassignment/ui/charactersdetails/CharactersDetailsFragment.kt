@@ -2,7 +2,6 @@ package com.globant.openbankassignment.ui.charactersdetails
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -57,7 +56,6 @@ class CharactersDetailsFragment : BaseFragment() {
             ViewModelProviders.of(this, viewModelFactory)
                 .get(CharactersDetailsViewModel::class.java)
         characterId=arguments?.getInt(ConstantKey.ARGUM_CHARACTERID)!!
-        getCharactersDetailsList()
         (activity as CharactersListActivity).supportActionBar?.title =
             arguments?.getString(ConstantKey.ARGUM_CHARACTERNAME)
                 ?: getString(R.string.charactersList_fragment_label)
@@ -67,6 +65,8 @@ class CharactersDetailsFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initRecyclerView()
+        getCharactersDetailsList()
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -85,12 +85,14 @@ class CharactersDetailsFragment : BaseFragment() {
 
     private fun getCharactersDetailsList() {
         if (InternetUtil.isInternetConnected()) {
+            showLoadingIndicator(true)
             viewModel.getCharactersDetails(characterId)
         }else{
             showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
 
             InternetUtil.observe(this, Observer { status ->
                 if (status != null && status) {
+                    showLoadingIndicator(true)
                     viewModel.getCharactersDetails(characterId)
                 }
             })
@@ -99,11 +101,29 @@ class CharactersDetailsFragment : BaseFragment() {
 
     private fun subscribeToViewModel() {
         viewModel.characterDetails.observe(viewLifecycleOwner, Observer {
+            showLoadingIndicator(false)
             if (it != null) handleViewState(it)
+            else showAlertMessage("",getString(R.string.lbl_no_data))
+        })
+        viewModel.getCharacterDetailsFailure.observe(viewLifecycleOwner, Observer<String> {
+            showLoadingIndicator(false)
+            if (!InternetUtil.isInternetConnected())
+            {
+                showAlertMessage(getString(R.string.lbl_internet_title),getString(R.string.lbl_msg_no_internet_connection))
+            }else{
+                showAlertMessage(getString(R.string.lbl_error_msg),it)
+            }
         })
     }
 
     private fun handleViewState(characterDetailsList: List<CharacterDetailsMapper>) {
         characterDetailTypeAdapter.setDetailsList(characterDetailsList)
     }
+    private fun showLoadingIndicator(loading: Boolean) = if (loading) {
+        pbLoading.visibility = View.VISIBLE
+    } else {
+        pbLoading.visibility = View.GONE
+    }
+
+
 }
