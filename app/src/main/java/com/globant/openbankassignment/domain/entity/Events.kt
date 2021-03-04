@@ -1,9 +1,9 @@
-package com.globant.openbankassignment.data.entity
+package com.globant.openbankassignment.domain.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Stories {
+class Events {
     @SerializedName("available")
     @Expose
     var available: Long = 0
@@ -14,7 +14,7 @@ class Stories {
 
     @SerializedName("items")
     @Expose
-    var storiesItems: List<StoriesItem>? = null
+    var items: List<Item>? = null
 
     @SerializedName("returned")
     @Expose

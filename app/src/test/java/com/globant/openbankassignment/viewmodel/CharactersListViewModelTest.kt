@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
+import com.globant.openbankassignment.domain.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.data.source.remote.MarvelApi
@@ -14,13 +14,10 @@ import com.globant.openbankassignment.testutil.RxImmediateSchedulerRule
 import com.globant.openbankassignment.ui.characterslist.CharactersListViewModel
 import com.google.gson.Gson
 import io.mockk.MockKAnnotations
-import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockkClass
-import io.reactivex.Observable
 import org.junit.Rule
 import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith

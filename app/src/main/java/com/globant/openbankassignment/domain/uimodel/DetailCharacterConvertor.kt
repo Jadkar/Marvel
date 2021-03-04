@@ -1,6 +1,6 @@
 package com.globant.openbankassignment.domain.uimodel
 
-import com.globant.openbankassignment.data.entity.*
+import com.globant.openbankassignment.domain.entity.*
 
 object DetailCharacterConvertor {
 

@@ -1,6 +1,6 @@
 package com.globant.openbankassignment.data.source.remote
 
-import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
+import com.globant.openbankassignment.domain.entity.MarvelCharactersResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -4,12 +4,11 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.globant.openbankassignment.data.mapper.CharacterListMapper
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
+import com.globant.openbankassignment.testutil.RxImmediateSchedulerRule
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import io.mockk.MockKAnnotations
-import io.mockk.every
+import io.mockk.*
 import io.mockk.impl.annotations.MockK
-import io.mockk.mockkClass
 import io.reactivex.Observable
 import org.junit.Assert
 import org.junit.Rule
@@ -26,6 +25,11 @@ internal class MarvelCharactersListUseCaseImplTest {
     @Rule
     @JvmField
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+    @Rule
+    @JvmField
+    var testSchedulerRule = RxImmediateSchedulerRule()
+
     private lateinit var marvelCharactersListUseCaseImpl: MarvelCharactersListUseCaseImpl
 
     @MockK
@@ -58,12 +62,14 @@ internal class MarvelCharactersListUseCaseImplTest {
             object : TypeToken<ArrayList<CharacterListUiModel>>() {}.type
         val mockResponse:List<CharacterListUiModel> = Gson().fromJson(exceptedData, groupListType)
 
-        val observableMock= Observable.just(mockResponse)
+        val observableMock = Observable.just(mockResponse)
 
-        every { marvelCharactersListUseCaseImpl.getCharactersList(0) } returns observableMock
+       // coEvery { marvelCharactersListUseCaseImpl.getCharactersList(0) } coAnswers Observable.just(mockResponse)
+        every { marvelCharactersListUseCaseImpl.getCharactersList(0) } returns Observable.just(mockResponse)
 
         var result = marvelCharactersListUseCaseImpl.getCharactersList(0)
 
+        verify { marvelCharactersListUseCaseImpl.getCharactersList(0) }
 
         Assert.assertEquals(observableMock, result)
     }

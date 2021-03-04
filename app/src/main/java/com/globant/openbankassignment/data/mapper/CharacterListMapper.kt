@@ -1,6 +1,6 @@
 package com.globant.openbankassignment.data.mapper
 
-import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
+import com.globant.openbankassignment.domain.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import javax.inject.Inject
 

@@ -8,7 +8,7 @@
 
     <variable
         name="detailListItem"
-        type="com.globant.openbankassignment.data.entity.Item" />
+        type="com.globant.openbankassignment.domain.entity.Item" />
     </data>
 <com.google.android.material.card.MaterialCardView
     android:layout_width="wrap_content"
@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimen_5dp"
-             tools:text="@string/txt_dummy"
             android:text="@{detailListItem.name}"
+            tools:text="@string/txt_dummy"
             style="@style/TextAppearance.MaterialComponents.Headline6"
             android:textColor="@android:color/black"
             android:textSize="18sp" />

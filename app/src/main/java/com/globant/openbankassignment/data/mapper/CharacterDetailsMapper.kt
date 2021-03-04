@@ -1,8 +1,7 @@
 package com.globant.openbankassignment.data.mapper
 
-import com.globant.openbankassignment.data.entity.*
+import com.globant.openbankassignment.domain.entity.*
 import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
-import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.domain.uimodel.CharactersDeatilsType
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.globant.openbankassignment.data.entity
+package com.globant.openbankassignment.domain.entity
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

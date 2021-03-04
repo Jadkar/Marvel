@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.data.entity.Item
+import com.globant.openbankassignment.domain.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeItemBinding
 
 class CharacterDetailsTypeItemAdapter(
@@ -34,7 +34,7 @@ class CharacterDetailsTypeItemAdapter(
         ) {
 
         fun bind(item: Item) {
-            itemRowBinding.setVariable(BR.characterDetails,item)
+            itemRowBinding.setVariable(BR.detailListItem,item)
         }
     }
 }

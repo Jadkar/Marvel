@@ -24,7 +24,7 @@ class DateHelperTest  {
         var haskKey="testMarvelkeyAssigmnent"
         var dummyResult="177707ff0d3e69b918de8c40a3747a77"
 
-        Assertions.assertEquals(dummyResult, DateHelper.calculateHash(haskKey))
+        Assertions.assertEquals(dummyResult, HasKeyGenerator.calculateHash(haskKey))
     }
 
     private fun getFakeCurrentTimeStamp():String{
