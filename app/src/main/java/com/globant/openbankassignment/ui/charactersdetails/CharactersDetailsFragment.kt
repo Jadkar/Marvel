@@ -32,7 +32,7 @@ class CharactersDetailsFragment : BaseFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var characterDetailTypeAdapter: CharacterDetailTypeAdapter
     private lateinit var viewModel: CharactersDetailsViewModel
-    private  var characterId:Int=0
+    private  var characterId:Long=0
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
@@ -55,7 +55,7 @@ class CharactersDetailsFragment : BaseFragment() {
         viewModel =
             ViewModelProviders.of(this, viewModelFactory)
                 .get(CharactersDetailsViewModel::class.java)
-        characterId=arguments?.getInt(ConstantKey.ARGUM_CHARACTERID)!!
+        characterId=arguments?.getLong(ConstantKey.ARGUM_CHARACTERID)!!
         (activity as CharactersListActivity).supportActionBar?.title =
             arguments?.getString(ConstantKey.ARGUM_CHARACTERNAME)
                 ?: getString(R.string.charactersList_fragment_label)
@@ -90,7 +90,7 @@ class CharactersDetailsFragment : BaseFragment() {
         }else{
             showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
 
-            InternetUtil.observe(this, Observer { status ->
+            InternetUtil.observe(viewLifecycleOwner, Observer { status ->
                 if (status != null && status) {
                     showLoadingIndicator(true)
                     viewModel.getCharactersDetails(characterId)

@@ -20,7 +20,7 @@ class CharactersDetailsViewModel @Inject constructor(private val repository: Get
     var characterDetails: MutableLiveData<List<CharacterDetailsMapper>> = MutableLiveData()
     var getCharacterDetailsFailure: MutableLiveData<String> = MutableLiveData()
 
-    fun getCharactersDetails(characterId: Int) {
+    fun getCharactersDetails(characterId: Long) {
 
         disposableCharacterDetails = object : DisposableObserver<MarvelCharactersResponse>() {
             override fun onComplete() {

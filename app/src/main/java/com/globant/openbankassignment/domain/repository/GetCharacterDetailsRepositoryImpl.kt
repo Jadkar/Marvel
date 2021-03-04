@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class GetCharacterDetailsRepositoryImpl @Inject constructor(private val service: MarvelApi) :
     GetCharactersDetailsRepository {
-    override fun getCharactersDetailsById(characterId: Int): Observable<MarvelCharactersResponse> {
+    override fun getCharactersDetailsById(characterId: Long): Observable<MarvelCharactersResponse> {
         return service.getCharactersById(characterId)
     }
 }

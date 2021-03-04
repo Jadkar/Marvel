@@ -11,5 +11,5 @@ interface MarvelApi {
     fun getCharactersList(@Query("offset") offset: Int): Observable<MarvelCharactersResponse>
 
     @GET("/v1/public/characters/{characterId}")
-    fun getCharactersById(@Path("characterId") characterId: Int): Observable<MarvelCharactersResponse>
+    fun getCharactersById(@Path("characterId") characterId: Long): Observable<MarvelCharactersResponse>
 }

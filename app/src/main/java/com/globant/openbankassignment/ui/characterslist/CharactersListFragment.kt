@@ -97,7 +97,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
             viewModel.getCharactersList(0)
         }else{
             showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
-            InternetUtil.observe(this, Observer { status ->
+            InternetUtil.observe(viewLifecycleOwner, Observer { status ->
                 if (status != null && status) {
                     showLoadingIndicator(true)
                     viewModel.getCharactersList(0)
@@ -131,7 +131,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
     override fun onCharacterSelected(result: Result?) {
         var bundle = bundleOf(
-            ConstantKey.ARGUM_CHARACTERID to result?.id?.toInt(),
+            ConstantKey.ARGUM_CHARACTERID to result?.id,
             ConstantKey.ARGUM_CHARACTERNAME to result?.name
         )
         view?.findNavController()
