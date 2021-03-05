@@ -6,15 +6,15 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolVersion
     dataBinding {
         enabled = true
     }
     defaultConfig {
         applicationId "com.globant.openbankassignment"
-        minSdkVersion 16
-        targetSdkVersion 30
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -47,48 +47,49 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
-    testImplementation 'junit:junit:4.13.2'
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.ext.navigationFragment"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.ext.navigationFragment"
+    testImplementation rootProject.ext.junit
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 
     // retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation rootProject.ext.retrofit
 
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    implementation rootProject.ext.retrofitGsonConverter
+    implementation rootProject.ext.retrofitRxJava2Adapter
+    implementation rootProject.ext.okhttpLogging
     // ViewModel and LiveData
     def lifecycle_version = '2.2.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation rootProject.ext.lifeCycle
 
 
     // Reactive Streams (convert Observable to LiveData)
-    def reactivestreams_version = "1.1.1"
-    implementation "android.arch.lifecycle:reactivestreams:$reactivestreams_version"
+
+    implementation rootProject.ext.reactivestreams
 
     // RxJava
-    def rxjava_version = '2.2.19'
-    implementation "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    implementation rootProject.ext.rxJava
 
     // RxAndroid
-    def rxandroid_version = '2.1.0'
-    implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    implementation rootProject.ext.rxAndroid
 
     // Rx-Retrofit Call Adapter
-    def rxcalladapter_version = '2.5.0'
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$rxcalladapter_version"
+
+    implementation rootProject.ext.retrofitRxJava2Adapter
+    implementation rootProject.ext.retrofitGsonConverter
+
 
 
     def daggerVer = 2.27 // or latest version
 
-    implementation "com.google.dagger:dagger:$daggerVer"
-    implementation "com.google.dagger:dagger-android-support:$daggerVer"
-    kapt "com.google.dagger:dagger-android-processor:$daggerVer"
-    kapt "com.google.dagger:dagger-compiler:$daggerVer"
+    implementation rootProject.ext.dagger
+    implementation rootProject.ext.daggerAndroid
+    implementation rootProject.ext.daggerSupport
+    kapt rootProject.ext.daggerCompiler
+    kapt rootProject.ext.daggerAndroidCompiler
 
     // Mutidex
     def multiDex = '2.0.1' // or latest version

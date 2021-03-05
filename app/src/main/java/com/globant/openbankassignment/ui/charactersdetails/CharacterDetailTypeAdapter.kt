@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
 import com.globant.openbankassignment.domain.uimodel.CharactersDeatilsType
 import com.globant.openbankassignment.domain.uimodel.DetailCharacterConvertor
-import com.globant.openbankassignment.domain.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
+import com.globant.openbankassignment.domain.entity.Item
 
 class CharacterDetailTypeAdapter(
     private val mContext: Context

@@ -2,9 +2,10 @@ package com.globant.openbankassignment.domain.uimodel
 
 import com.globant.openbankassignment.domain.entity.*
 
+
 object DetailCharacterConvertor {
 
-     fun convertComicsItem(comicsItem:Comics):List<Item>{
+     fun convertComicsItem(comicsItem: Comics):List<Item>{
 
         var convertedItemList = ArrayList<Item>()
         for (item in comicsItem.items!!) {
@@ -18,7 +19,7 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertSeriesItem(seriesItem:Series):List<Item>{
+     fun convertSeriesItem(seriesItem: Series):List<Item>{
         var convertedItemList = ArrayList<Item>()
         for (item in seriesItem.items!!) {
             // body of loop
@@ -30,7 +31,7 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertStoriesItem(storiesItem:Stories):List<Item>{
+     fun convertStoriesItem(storiesItem: Stories):List<Item>{
         var convertedItemList = ArrayList<Item>()
         for (item in storiesItem.storiesItems!!) {
             // body of loop
@@ -42,7 +43,7 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertEventsItem(eventsItem:Events):List<Item>{
+     fun convertEventsItem(eventsItem: Events):List<Item>{
         var convertedItemList = ArrayList<Item>()
         for (item in eventsItem.items!!) {
             // body of loop

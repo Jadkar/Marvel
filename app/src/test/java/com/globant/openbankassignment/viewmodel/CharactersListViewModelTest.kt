@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.globant.openbankassignment.domain.entity.MarvelCharactersResponse
+import com.globant.domain.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.data.source.remote.MarvelApi
