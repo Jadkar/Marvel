@@ -1,4 +1,4 @@
-package com.openbank.data.data.repository
+package com.openbank.data.repository
 
 import com.openbank.data.remote.GetCharacterListRemoteSource
 import com.openbank.data.repository.GetCharactersRepositoryImpl
@@ -28,4 +28,6 @@ internal class GetCharactersRepositoryImplTest {
 
         Mockito.verify(getCharacterListRemoteSource).getMarvelCharacterList(0)
     }
+
+
 }

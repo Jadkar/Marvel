@@ -2,18 +2,18 @@ package com.openbank.data.mapper
 
 import com.openbank.data.entity.MarvelCharactersResponse
 
-import com.openbank.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.model.CharacterListModel
 import javax.inject.Inject
 
 class CharacterListMapperImpl @Inject constructor():
     CharacterListMapper {
 
-    override fun getCharactersListUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterListUiModel>{
-        var characterListMapperArray = ArrayList<CharacterListUiModel>()
+    override fun getCharactersListUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterListModel>{
+        var characterListMapperArray = ArrayList<CharacterListModel>()
         if (marvelCharactersResponse.data?.results?.size!! > 0) {
             for (result in marvelCharactersResponse.data?.results!!) {
                 var characterListMapper =
-                   CharacterListUiModel()
+                    CharacterListModel()
                 characterListMapper.characterName = result.name
                 characterListMapper.characterId = result.id
                 characterListMapper.characterDescription = result.description

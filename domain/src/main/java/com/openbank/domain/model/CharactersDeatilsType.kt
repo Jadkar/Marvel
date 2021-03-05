@@ -1,4 +1,4 @@
-package com.openbank.domain.uimodel
+package com.openbank.domain.model
 
     enum class CharactersDeatilsType(val value:String){
         COMICS("Comics"),

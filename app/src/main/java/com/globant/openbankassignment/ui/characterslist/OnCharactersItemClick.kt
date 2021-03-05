@@ -1,8 +1,8 @@
 package com.globant.openbankassignment.ui.characterslist
 
-import com.openbank.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.model.CharacterListModel
 
 interface OnCharactersItemClick {
 
-    fun onCharacterSelected(result: CharacterListUiModel?)
+    fun onCharacterSelected(result: CharacterListModel?)
 }

@@ -1,7 +1,7 @@
-package com.openbank.domain.uimodel
+package com.openbank.domain.model
 
 
-data class CharacterListUiModel (
+data class CharacterListModel (
     var characterName: String? = null,
     var characterDescription: String? = null,
     var characterUrl: String? = null,

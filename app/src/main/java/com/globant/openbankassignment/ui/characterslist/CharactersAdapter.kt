@@ -12,13 +12,13 @@ import com.bumptech.glide.request.RequestOptions
 import com.globant.openbankassignment.BR
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
-import com.openbank.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.model.CharacterListModel
 
 class CharactersAdapter(
     private val onCharactersItemClick: OnCharactersItemClick
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
-    private var characterList: List<CharacterListUiModel> = emptyList()
+    private var characterList: List<CharacterListModel> = emptyList()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersListHolder {
@@ -36,7 +36,7 @@ class CharactersAdapter(
 
     override fun getItemCount(): Int = characterList.size
 
-    fun setCharactersData(characterList: List<CharacterListUiModel>) {
+    fun setCharactersData(characterList: List<CharacterListModel>) {
         this.characterList = characterList
         notifyDataSetChanged()
     }
@@ -46,7 +46,7 @@ class CharactersAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(resultData: CharacterListUiModel?, onCharactersItemClick: OnCharactersItemClick) {
+        fun bind(resultData: CharacterListModel?, onCharactersItemClick: OnCharactersItemClick) {
 
             itemRowBinding.setVariable(BR.characterList, resultData)
 

@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.openbank.domain.uimodel.CharacterDetailsUiModel
+import com.openbank.domain.model.CharacterDetailsModel
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.ui.characterslist.CharactersListActivity
 import com.globant.openbankassignment.utils.InternetUtil
@@ -117,7 +117,7 @@ class CharactersDetailsFragment : BaseFragment() {
         })
     }
 
-    private fun handleViewState(characterDetailsList: List<CharacterDetailsUiModel>) {
+    private fun handleViewState(characterDetailsList: List<CharacterDetailsModel>) {
         characterDetailTypeAdapter.setDetailsList(characterDetailsList)
     }
     private fun showLoadingIndicator(loading: Boolean) = if (loading) {

@@ -1,15 +1,15 @@
-package com.openbank.domain.uimodel
+package com.openbank.domain.model
 
 
 
 object DetailCharacterConvertor {
 
-     fun convertComicsItem(comicsItem: ComicsUIModel):List<ItemUiModel>{
+     fun convertComicsItem(comicsItem: ComicsModel):List<ItemModel>{
 
-        var convertedItemList = ArrayList<ItemUiModel>()
+        var convertedItemList = ArrayList<ItemModel>()
         for (item in comicsItem.items!!) {
             // body of loop
-            val listItem=ItemUiModel()
+            val listItem= ItemModel()
             listItem.name=item.name
             listItem.resourceURI=item.resourceURI
             convertedItemList.add(listItem)
@@ -18,11 +18,11 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertSeriesItem(seriesItem: SeriesUiModel):List<ItemUiModel>{
-        var convertedItemList = ArrayList<ItemUiModel>()
+     fun convertSeriesItem(seriesItem: SeriesModel):List<ItemModel>{
+        var convertedItemList = ArrayList<ItemModel>()
         for (item in seriesItem.items!!) {
             // body of loop
-            val listItem=ItemUiModel()
+            val listItem= ItemModel()
             listItem.name=item.name
             listItem.resourceURI=item.resourceURI
             convertedItemList.add(listItem)
@@ -30,11 +30,11 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertStoriesItem(storiesItem: StoriesUiModel):List<ItemUiModel>{
-        var convertedItemList = ArrayList<ItemUiModel>()
+     fun convertStoriesItem(storiesItem: StoriesModel):List<ItemModel>{
+        var convertedItemList = ArrayList<ItemModel>()
         for (item in storiesItem.storiesItems!!) {
             // body of loop
-            val listItem=ItemUiModel()
+            val listItem= ItemModel()
             listItem.name=item.name
             listItem.resourceURI=item.resourceURI
             convertedItemList.add(listItem)
@@ -42,11 +42,11 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertEventsItem(eventsItem: EventsUiModel):List<ItemUiModel>{
-        var convertedItemList = ArrayList<ItemUiModel>()
+     fun convertEventsItem(eventsItem: EventsModel):List<ItemModel>{
+        var convertedItemList = ArrayList<ItemModel>()
         for (item in eventsItem.items!!) {
             // body of loop
-            val listItem=ItemUiModel()
+            val listItem= ItemModel()
             listItem.name=item.name
             listItem.resourceURI=item.resourceURI
             convertedItemList.add(listItem)
@@ -54,11 +54,11 @@ object DetailCharacterConvertor {
         return convertedItemList
     }
 
-     fun convertUrlsItem(urlsItem:List<UrlUiModel>):List<ItemUiModel>{
-        var convertedItemList = ArrayList<ItemUiModel>()
+     fun convertUrlsItem(urlsItem:List<UrlModel>):List<ItemModel>{
+        var convertedItemList = ArrayList<ItemModel>()
         for (item in urlsItem) {
             // body of loop
-            val listItem=ItemUiModel()
+            val listItem= ItemModel()
             listItem.name=item.type
             listItem.resourceURI=item.url
             convertedItemList.add(listItem)

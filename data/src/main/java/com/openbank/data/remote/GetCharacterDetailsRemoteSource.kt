@@ -1,9 +1,9 @@
 package com.openbank.data.remote
 
-import com.openbank.domain.uimodel.CharacterDetailsUiModel
+import com.openbank.domain.model.CharacterDetailsModel
 import io.reactivex.Observable
 
 interface GetCharacterDetailsRemoteSource {
 
- fun getMarvelCharacterDetails(characterId:Long): Observable<List<CharacterDetailsUiModel>>
+ fun getMarvelCharacterDetails(characterId:Long): Observable<List<CharacterDetailsModel>>
 }

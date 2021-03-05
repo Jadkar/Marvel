@@ -1,9 +1,9 @@
 package com.openbank.domain.usecase
 
-import com.openbank.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.model.CharacterListModel
 import io.reactivex.Observable
 
 interface MarvelCharactersListUseCase {
 
-     fun getCharactersList(offSet:Int): Observable<List<CharacterListUiModel>>
+     fun getCharactersList(offSet:Int): Observable<List<CharacterListModel>>
 }

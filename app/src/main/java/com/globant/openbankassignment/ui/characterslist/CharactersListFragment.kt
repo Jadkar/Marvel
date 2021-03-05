@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.openbank.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.model.CharacterListModel
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.InternetUtil
 import dagger.android.support.AndroidSupportInjection
@@ -122,12 +122,12 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         })
     }
 
-    private fun handleViewState(characterMapperList: List<CharacterListUiModel>) {
+    private fun handleViewState(characterMapperList: List<CharacterListModel>) {
         charactersAdapter.setCharactersData(characterMapperList)
 
     }
 
-    override fun onCharacterSelected(result: CharacterListUiModel?) {
+    override fun onCharacterSelected(result: CharacterListModel?) {
         var bundle = bundleOf(
             CharactersListActivity.ARGUM_CHARACTERID to result?.characterId,
             CharactersListActivity.ARGUM_CHARACTERNAME to result?.characterName

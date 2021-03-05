@@ -1,8 +1,7 @@
 package com.globant.openbankassignment.ui.charactersdetails
 
 import androidx.lifecycle.MutableLiveData
-import com.openbank.domain.uimodel.CharacterDetailsUiModel
-import com.openbank.domain.usecase.MarvelCharacterDetailsUseCaseImpl
+import com.openbank.domain.model.CharacterDetailsModel
 import com.globant.openbankassignment.ui.base.BaseViewModel
 import com.google.gson.Gson
 import com.openbank.domain.usecase.MarvelCharactersDetailsUseCase
@@ -14,18 +13,18 @@ import javax.inject.Inject
 class CharactersDetailsViewModel @Inject constructor(private val useCaseImpl: MarvelCharactersDetailsUseCase) :
     BaseViewModel() {
 
-    private lateinit var disposableCharacterDetails: DisposableObserver<List<CharacterDetailsUiModel>>
+    private lateinit var disposableCharacterDetails: DisposableObserver<List<CharacterDetailsModel>>
 
-    var characterDetails: MutableLiveData<List<CharacterDetailsUiModel>> = MutableLiveData()
+    var characterDetails: MutableLiveData<List<CharacterDetailsModel>> = MutableLiveData()
     var getCharacterDetailsFailure: MutableLiveData<String> = MutableLiveData()
 
     fun getCharactersDetails(characterId: Long) {
 
-        disposableCharacterDetails = object : DisposableObserver<List<CharacterDetailsUiModel>>() {
+        disposableCharacterDetails = object : DisposableObserver<List<CharacterDetailsModel>>() {
             override fun onComplete() {
             }
 
-            override fun onNext(t: List<CharacterDetailsUiModel>) {
+            override fun onNext(t: List<CharacterDetailsModel>) {
                 var jsonCharaterList= Gson().toJson(t)
                 characterDetails.postValue(t)
             }
