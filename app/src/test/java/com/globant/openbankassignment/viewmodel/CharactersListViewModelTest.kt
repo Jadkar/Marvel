@@ -4,7 +4,6 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.globant.domain.entity.MarvelCharactersResponse
 import com.openbank.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.data.source.remote.MarvelApi
@@ -13,6 +12,7 @@ import com.globant.openbankassignment.testutil.LiveDataTestUtil
 import com.globant.openbankassignment.testutil.RxImmediateSchedulerRule
 import com.globant.openbankassignment.ui.characterslist.CharactersListViewModel
 import com.google.gson.Gson
+import com.openbank.domain.entity.MarvelCharactersResponse
 import io.mockk.MockKAnnotations
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockkClass

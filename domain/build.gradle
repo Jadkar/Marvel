@@ -20,4 +20,11 @@ dependencies {
     implementation rootProject.ext.rxJava
     implementation rootProject.ext.glide
 
+    // dagger
+    implementation rootProject.ext.dagger
+    implementation rootProject.ext.daggerAndroid
+    implementation rootProject.ext.daggerSupport
+    kapt rootProject.ext.daggerCompiler
+    kapt rootProject.ext.daggerAndroidCompiler
+
 }

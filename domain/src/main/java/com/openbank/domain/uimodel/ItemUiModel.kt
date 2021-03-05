@@ -1,7 +1,7 @@
-package com.openbank.domain.entity
+package com.openbank.domain.uimodel
 
 
-class Item {
+class ItemUiModel {
 
     var resourceURI: String? = null
     var name: String? = null

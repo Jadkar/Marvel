@@ -1,7 +1,7 @@
 package com.globant.openbankassignment.domain.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.globant.openbankassignment.data.mapper.CharacterListMapper
+import com.globant.openbankassignment.data.mapper.CharacterListMapperImpl
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.openbank.domain.usecase.MarvelCharactersListUseCaseImpl
 import com.openbank.domain.uimodel.CharacterListUiModel
@@ -34,16 +34,16 @@ internal class MarvelCharactersListUseCaseImplTest {
     private lateinit var getCharactersRepositoryImpl: GetCharactersRepositoryImpl
 
     @MockK
-    private lateinit var mapper: CharacterListMapper
+    private lateinit var mapperImpl: CharacterListMapperImpl
 
     @BeforeEach
     fun setUp() {
         MockKAnnotations.init(this)
         getCharactersRepositoryImpl= mockkClass(GetCharactersRepositoryImpl::class)
-        mapper= mockkClass(CharacterListMapper::class)
+        mapperImpl= mockkClass(CharacterListMapperImpl::class)
         marvelCharactersListUseCaseImpl =
             MarvelCharactersListUseCaseImpl(
-                getCharactersRepositoryImpl,mapper
+                getCharactersRepositoryImpl,mapperImpl
             )
 
     }

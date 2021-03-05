@@ -1,10 +1,10 @@
 package com.globant.openbankassignment.domain.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.globant.domain.entity.MarvelCharactersResponse
 import com.globant.openbankassignment.data.repository.GetCharacterDetailsRepositoryImpl
 import com.globant.openbankassignment.data.source.remote.MarvelApi
 import com.google.gson.Gson
+import com.openbank.domain.entity.MarvelCharactersResponse
 import io.reactivex.Observable
 import org.junit.Assert
 import org.junit.Rule

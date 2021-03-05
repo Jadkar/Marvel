@@ -3,6 +3,7 @@ package com.globant.openbankassignment.data.di.component
 import com.globant.openbankassignment.data.di.module.*
 import com.globant.openbankassignment.data.di.module.ViewModelModule
 import com.globant.openbankassignment.utils.MarvelApplication
+import com.openbank.domain.di.UseCaseModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -12,7 +13,7 @@ import javax.inject.Singleton
 @Singleton
 @Component
     (modules = [AndroidSupportInjectionModule::class,NetworkApiModule::class,ActivityModule::class, ViewModelModule::class,
-     FragmentModule::class,RepositoryModule::class])
+     FragmentModule::class,ApiModule::class,UseCaseModule::class])
 interface AppComponent:AndroidInjector<MarvelApplication> {
 
     @Component.Builder

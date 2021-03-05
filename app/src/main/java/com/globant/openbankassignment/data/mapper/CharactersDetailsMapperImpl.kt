@@ -1,14 +1,17 @@
 package com.globant.openbankassignment.data.mapper
 
-import com.globant.openbankassignment.data.mapper.datasource.DetailsMapperDataSource
-import com.openbank.domain.entity.*
-import com.openbank.domain.uimodel.CharacterDetailsUiModel
-import com.openbank.domain.uimodel.CharactersDeatilsType
+
+import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.openbank.domain.uimodel.*
+import java.lang.reflect.Type
 import javax.inject.Inject
 
-class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
+class CharactersDetailsMapperImpl @Inject constructor() :
+    CharactersDetailsMapper {
 
-    override fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterDetailsUiModel>{
+    override fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse): List<CharacterDetailsUiModel> {
         var characterDetailsMapper = ArrayList<CharacterDetailsUiModel>()
 
         // Comics
@@ -18,7 +21,9 @@ class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
         ) {
             var characterComicsTitle: String? = CharactersDeatilsType.COMICS.value
 
-            var itemComics: Comics = marvelCharactersResponse?.data?.results?.get(0)?.comics!!
+            val jsonInString: String =
+                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.comics!!)
+            var itemComics: ComicsUIModel = Gson().fromJson(jsonInString, ComicsUIModel::class.java)
 
             var characterDetailsComics = CharacterDetailsUiModel()
             characterDetailsComics.title = characterComicsTitle
@@ -33,7 +38,11 @@ class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
         ) {
             var characterSeriesTitle: String? = CharactersDeatilsType.SERIES.value
 
-            var itemSeries: Series = marvelCharactersResponse?.data?.results?.get(0)?.series!!
+            val jsonInitemSeries: String =
+                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.series!!)
+
+            var itemSeries: SeriesUiModel =
+                Gson().fromJson(jsonInitemSeries, SeriesUiModel::class.java)
 
             var characterDetailsSeries = CharacterDetailsUiModel()
             characterDetailsSeries.title = characterSeriesTitle
@@ -49,7 +58,11 @@ class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
         ) {
             var characterStoriesTitle: String? = CharactersDeatilsType.STORIES.value
 
-            var itemStories: Stories = marvelCharactersResponse?.data?.results?.get(0)?.stories!!
+            val jsonInitemStories: String =
+                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.stories!!)
+
+            var itemStories: StoriesUiModel =
+                Gson().fromJson(jsonInitemStories, StoriesUiModel::class.java)
 
             var characterDetailsStories = CharacterDetailsUiModel()
             characterDetailsStories.title = characterStoriesTitle
@@ -65,7 +78,11 @@ class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
         ) {
             var characterEventsTitle: String? = CharactersDeatilsType.EVENTS.value
 
-            var itemEvents: Events = marvelCharactersResponse?.data?.results?.get(0)?.events!!
+            val jsonInitemEvents: String =
+                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.events!!)
+
+            var itemEvents: EventsUiModel =
+                Gson().fromJson(jsonInitemEvents, EventsUiModel::class.java)
 
             var characterDetailsEvents = CharacterDetailsUiModel()
             characterDetailsEvents.title = characterEventsTitle
@@ -77,7 +94,12 @@ class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
         //Details Link URLS
         var characterUrlsTitle: String? = CharactersDeatilsType.CHARACTERSDETAILSSOURCE.value
 
-        var itemUrl: List<Url> = marvelCharactersResponse?.data?.results?.get(0)?.urls!!
+        val jsonInitemUrl =
+            Gson().toJsonTree(marvelCharactersResponse?.data?.results?.get(0)?.urls!!)
+
+        val type: Type = object : TypeToken<List<UrlUiModel?>?>() {}.getType()
+
+        var itemUrl: List<UrlUiModel> = Gson().fromJson(jsonInitemUrl, type)
 
         var characterDetailsUrls = CharacterDetailsUiModel()
         characterDetailsUrls.title = characterUrlsTitle

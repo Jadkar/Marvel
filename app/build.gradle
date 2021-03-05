@@ -82,10 +82,7 @@ dependencies {
     implementation rootProject.ext.retrofitRxJava2Adapter
     implementation rootProject.ext.retrofitGsonConverter
 
-
-
-    def daggerVer = 2.27 // or latest version
-
+    // dagger
     implementation rootProject.ext.dagger
     implementation rootProject.ext.daggerAndroid
     implementation rootProject.ext.daggerSupport

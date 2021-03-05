@@ -1,4 +1,4 @@
-package com.openbank.domain.entity
+package com.globant.openbankassignment.data.entity
 
 
 class Data {

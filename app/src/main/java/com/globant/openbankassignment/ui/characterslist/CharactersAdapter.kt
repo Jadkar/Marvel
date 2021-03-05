@@ -49,7 +49,7 @@ class CharactersAdapter(
         fun bind(resultData: CharacterListUiModel?, onCharactersItemClick: OnCharactersItemClick) {
 
             itemRowBinding.setVariable(BR.characterList, resultData)
-            itemRowBinding.characterUrl = resultData?.characterUrl
+
 
             itemView.setOnClickListener {
                 onCharactersItemClick.onCharacterSelected(resultData)

@@ -37,12 +37,13 @@ class CharactersDetailsFragment : BaseFragment() {
         super.onAttach(context)
     }
 
+    private lateinit var mBinding:ViewDataBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val mBinding = DataBindingUtil.inflate<ViewDataBinding>(
+         mBinding = DataBindingUtil.inflate<ViewDataBinding>(
             inflater, R.layout.fragment_characters_details,
             container, false
         )
@@ -76,6 +77,7 @@ class CharactersDetailsFragment : BaseFragment() {
 
     private fun initRecyclerView() {
         characterDetailTypeAdapter = CharacterDetailTypeAdapter(requireContext())
+
 
         rv_charactersDetailsList.layoutManager = LinearLayoutManager(context)
         rv_charactersDetailsList.adapter = characterDetailTypeAdapter
@@ -119,6 +121,7 @@ class CharactersDetailsFragment : BaseFragment() {
         characterDetailTypeAdapter.setDetailsList(characterDetailsList)
     }
     private fun showLoadingIndicator(loading: Boolean) = if (loading) {
+
         pbLoading.visibility = View.VISIBLE
     } else {
         pbLoading.visibility = View.GONE

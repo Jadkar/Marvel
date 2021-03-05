@@ -1,13 +1,13 @@
-package com.openbank.domain.entity
+package com.openbank.domain.uimodel
 
 
-class Comics {
+class ComicsUIModel {
 
     var available: Long = 0
 
     var collectionURI: String? = null
 
-    var items: List<Item>? =
+    var items: List<ItemUiModel>? =
         null
     var returned: Long = 0
 

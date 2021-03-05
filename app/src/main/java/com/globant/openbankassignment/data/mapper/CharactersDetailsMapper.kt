@@ -1,8 +1,8 @@
-package com.globant.openbankassignment.data.mapper.datasource
+package com.globant.openbankassignment.data.mapper
 
-import com.openbank.domain.entity.MarvelCharactersResponse
+import com.globant.openbankassignment.data.entity.MarvelCharactersResponse
 import com.openbank.domain.uimodel.CharacterDetailsUiModel
 
-interface DetailsMapperDataSource {
+interface CharactersDetailsMapper {
     fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterDetailsUiModel>
 }

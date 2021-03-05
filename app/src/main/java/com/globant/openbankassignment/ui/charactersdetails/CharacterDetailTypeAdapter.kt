@@ -6,11 +6,12 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.globant.openbankassignment.data.entity.Item
 import com.openbank.domain.uimodel.CharacterDetailsUiModel
 import com.openbank.domain.uimodel.CharactersDeatilsType
 import com.openbank.domain.uimodel.DetailCharacterConvertor
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
-import com.openbank.domain.entity.Item
+import com.openbank.domain.uimodel.ItemUiModel
 
 class CharacterDetailTypeAdapter(
     private val mContext: Context
@@ -46,7 +47,7 @@ class CharacterDetailTypeAdapter(
 
             itemRowBinding.setVariable(BR.characterDetails,characterDetailsUiModel)
 
-            var listItem: List<Item> = emptyList()
+            var listItem: List<ItemUiModel> = emptyList()
             when (characterDetailsUiModel.title) {
 
                 CharactersDeatilsType.COMICS.value -> {

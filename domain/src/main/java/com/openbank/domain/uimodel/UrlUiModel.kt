@@ -1,6 +1,6 @@
-package com.openbank.domain.entity
+package com.openbank.domain.uimodel
 
-class Url {
+class UrlUiModel {
 
     var type: String? = null
 
