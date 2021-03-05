@@ -15,14 +15,14 @@ class CharactersDetailsMapperImpl @Inject constructor() :
         val characterDetailsMapper = ArrayList<CharacterDetailsModel>()
 
         // Comics
-        if (marvelCharactersResponse?.data?.results?.get(0)?.comics?.items != null && marvelCharactersResponse?.data?.results?.get(
+        if (marvelCharactersResponse.data?.results?.get(0)?.comics?.items != null && marvelCharactersResponse.data?.results?.get(
                 0
             )?.comics?.items?.size!! > 0
         ) {
             val characterComicsTitle: String? = CharactersDeatilsType.COMICS.value
 
             val jsonInString: String =
-                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.comics!!)
+                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.comics!!)
             val itemComics: ComicsModel = Gson().fromJson(jsonInString, ComicsModel::class.java)
 
             val characterDetailsComics =
@@ -33,7 +33,7 @@ class CharactersDetailsMapperImpl @Inject constructor() :
         }
 
         //Series
-        if (marvelCharactersResponse?.data?.results?.get(0)?.series?.items != null && marvelCharactersResponse?.data?.results?.get(
+        if (marvelCharactersResponse.data?.results?.get(0)?.series?.items != null && marvelCharactersResponse?.data?.results?.get(
                 0
             )?.series?.items?.size!! > 0
         ) {
@@ -54,7 +54,7 @@ class CharactersDetailsMapperImpl @Inject constructor() :
         }
 
         //Stories
-        if (marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems != null && marvelCharactersResponse?.data?.results?.get(
+        if (marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems != null && marvelCharactersResponse.data?.results?.get(
                 0
             )?.stories?.storiesItems?.size!! > 0
         ) {
@@ -75,14 +75,14 @@ class CharactersDetailsMapperImpl @Inject constructor() :
         }
 
         //Events
-        if (marvelCharactersResponse?.data?.results?.get(0)?.events?.items != null && marvelCharactersResponse?.data?.results?.get(
+        if (marvelCharactersResponse.data?.results?.get(0)?.events?.items != null && marvelCharactersResponse.data?.results?.get(
                 0
             )?.events?.items?.size!! > 0
         ) {
             val characterEventsTitle: String? = CharactersDeatilsType.EVENTS.value
 
             val jsonInitemEvents: String =
-                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.events!!)
+                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.events!!)
 
             val itemEvents: EventsModel =
                 Gson().fromJson(jsonInitemEvents, EventsModel::class.java)
@@ -99,7 +99,7 @@ class CharactersDetailsMapperImpl @Inject constructor() :
         val characterUrlsTitle: String? = CharactersDeatilsType.CHARACTERSDETAILSSOURCE.value
 
         val jsonInitemUrl =
-            Gson().toJsonTree(marvelCharactersResponse?.data?.results?.get(0)?.urls!!)
+            Gson().toJsonTree(marvelCharactersResponse.data?.results?.get(0)?.urls!!)
 
         val type: Type = object : TypeToken<List<UrlModel?>?>() {}.type
 
