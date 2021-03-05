@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
-import com.globant.openbankassignment.domain.uimodel.CharactersDeatilsType
-import com.globant.openbankassignment.domain.uimodel.DetailCharacterConvertor
+import com.openbank.domain.uimodel.CharacterDetailsUiModel
+import com.openbank.domain.uimodel.CharactersDeatilsType
+import com.openbank.domain.uimodel.DetailCharacterConvertor
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
-import com.globant.openbankassignment.domain.entity.Item
+import com.openbank.domain.entity.Item
 
 class CharacterDetailTypeAdapter(
     private val mContext: Context

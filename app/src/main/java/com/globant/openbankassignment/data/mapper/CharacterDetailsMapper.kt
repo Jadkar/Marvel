@@ -1,13 +1,14 @@
 package com.globant.openbankassignment.data.mapper
 
-import com.globant.openbankassignment.domain.entity.*
-import com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel
-import com.globant.openbankassignment.domain.uimodel.CharactersDeatilsType
+import com.globant.openbankassignment.data.mapper.datasource.DetailsMapperDataSource
+import com.openbank.domain.entity.*
+import com.openbank.domain.uimodel.CharacterDetailsUiModel
+import com.openbank.domain.uimodel.CharactersDeatilsType
 import javax.inject.Inject
 
-class CharacterDetailsMapper @Inject constructor(){
+class CharacterDetailsMapper @Inject constructor():DetailsMapperDataSource{
 
-    fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterDetailsUiModel>{
+    override fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterDetailsUiModel>{
         var characterDetailsMapper = ArrayList<CharacterDetailsUiModel>()
 
         // Comics

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeItemBinding
-import com.globant.openbankassignment.domain.entity.Item
+import com.openbank.domain.entity.Item
 
 class CharacterDetailsTypeItemAdapter(
     private val mItemList: List<Item>

@@ -39,6 +39,7 @@ ext {
     daggerVersion = '2.17'
     lifecycleVersion = '2.2.0'
     reactivestreamsVersion = '1.1.1'
+    appcompatVer = '1.2.0'
 
     // test dependencies
     testRunnerVersion = '1.0.1'
@@ -61,6 +62,7 @@ ext {
   //  javaxInject = "javax.inject:javax.inject:1"
 
     lifeCycle= "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    appcompat= "androidx.appcompat:appcompat:$appcompatVer"
     reactivestreams= "android.arch.lifecycle:reactivestreams:$reactivestreamsVersion"
     retrofit = "com.squareup.retrofit2:retrofit:$retrofitVersion"
     retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
@@ -69,6 +71,7 @@ ext {
 
     rxJava = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     rxAndroid = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    javaxInject = "javax.inject:javax.inject:1"
 
 
 

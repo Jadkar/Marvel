@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.globant.domain.entity.MarvelCharactersResponse
-import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
 import com.globant.openbankassignment.data.source.remote.MarvelApi
 import com.globant.openbankassignment.testutil.InstantExecutorExtension

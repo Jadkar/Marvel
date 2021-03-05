@@ -1,15 +1,15 @@
 package com.globant.openbankassignment.ui.characterslist
 
 import androidx.lifecycle.MutableLiveData
-import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
-import com.globant.openbankassignment.domain.usecase.MarvelCharactersListUseCaseImpl
+import com.openbank.domain.usecase.MarvelCharactersListUseCase
 import com.globant.openbankassignment.ui.base.BaseViewModel
+import com.openbank.domain.uimodel.CharacterListUiModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class CharactersListViewModel @Inject constructor(private val useCaseCharactersList: MarvelCharactersListUseCaseImpl) :
+class CharactersListViewModel @Inject constructor(private val useCaseCharactersList: MarvelCharactersListUseCase) :
     BaseViewModel() {
 
     lateinit var disposableObserverCharacters: DisposableObserver<List<CharacterListUiModel>>
@@ -22,6 +22,7 @@ class CharactersListViewModel @Inject constructor(private val useCaseCharactersL
         disposableObserverCharacters = object : DisposableObserver<List<CharacterListUiModel>>() {
             override fun onComplete() {
             }
+
             override fun onError(e: Throwable) {
                 getCharactersFailure.postValue(e.message)
             }
@@ -37,7 +38,6 @@ class CharactersListViewModel @Inject constructor(private val useCaseCharactersL
             .subscribe(disposableObserverCharacters)
 
     }
-
 
 
 }

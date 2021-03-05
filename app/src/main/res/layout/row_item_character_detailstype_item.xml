@@ -8,7 +8,7 @@
 
     <variable
         name="detailListItem"
-        type="com.globant.openbankassignment.domain.entity.Item" />
+        type="com.openbank.domain.entity.Item" />
     </data>
 <com.google.android.material.card.MaterialCardView
     android:layout_width="wrap_content"

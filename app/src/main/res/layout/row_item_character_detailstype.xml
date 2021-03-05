@@ -9,7 +9,7 @@
 
         <variable
             name="characterDetails"
-            type="com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel" />
+            type="com.openbank.domain.uimodel.CharacterDetailsUiModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

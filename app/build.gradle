@@ -45,11 +45,12 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation rootProject.ext.appcompat
     implementation 'com.google.android.material:material:1.3.0'
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.ext.navigationFragment"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.ext.navigationFragment"
+    implementation project(path: ':domain')
     testImplementation rootProject.ext.junit
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
@@ -62,7 +63,7 @@ dependencies {
     implementation rootProject.ext.retrofitRxJava2Adapter
     implementation rootProject.ext.okhttpLogging
     // ViewModel and LiveData
-    def lifecycle_version = '2.2.0'
+
     implementation rootProject.ext.lifeCycle
 
 
@@ -95,8 +96,7 @@ dependencies {
     def multiDex = '2.0.1' // or latest version
     implementation "androidx.multidex:multidex:$multiDex"
 
-    //glide
-    def glideVer = '4.4.0'
+
     implementation rootProject.ext.glide
     kapt rootProject.ext.glideCompiler
 

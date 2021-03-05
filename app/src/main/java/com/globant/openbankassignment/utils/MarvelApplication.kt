@@ -1,6 +1,6 @@
 package com.globant.openbankassignment.utils
 
-import com.globant.openbankassignment.di.component.DaggerAppComponent
+import com.globant.openbankassignment.data.di.component.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
 

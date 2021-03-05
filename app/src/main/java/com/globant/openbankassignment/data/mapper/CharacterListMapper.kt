@@ -1,17 +1,18 @@
 package com.globant.openbankassignment.data.mapper
 
-import com.globant.openbankassignment.domain.entity.MarvelCharactersResponse
-import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
+import com.openbank.domain.datasource.CharacterListDataSource
+import com.openbank.domain.entity.MarvelCharactersResponse
+import com.openbank.domain.uimodel.CharacterListUiModel
 import javax.inject.Inject
 
-class CharacterListMapper @Inject constructor(){
+class CharacterListMapper @Inject constructor(): CharacterListDataSource {
 
-    fun getCharactersListUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterListUiModel>{
+    override fun getCharactersListUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterListUiModel>{
         var characterListMapperArray = ArrayList<CharacterListUiModel>()
         if (marvelCharactersResponse.data?.results?.size!! > 0) {
             for (result in marvelCharactersResponse.data?.results!!) {
                 var characterListMapper =
-                    com.globant.openbankassignment.domain.uimodel.CharacterListUiModel()
+                    com.openbank.domain.uimodel.CharacterListUiModel()
                 characterListMapper.characterName = result.name
                 characterListMapper.characterId = result.id
                 characterListMapper.characterDescription = result.description
