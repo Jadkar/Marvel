@@ -11,6 +11,9 @@ android {
     dataBinding {
         enabled = true
     }
+    buildFeatures {
+        viewBinding = true
+    }
     defaultConfig {
         applicationId "com.globant.openbankassignment"
         minSdkVersion rootProject.ext.minSdkVersion

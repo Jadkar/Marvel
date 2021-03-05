@@ -18,6 +18,7 @@ import com.globant.openbankassignment.utils.InternetUtil
 import com.openbank.domain.model.CharacterDetailsModel
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_characters_details.*
+import kotlinx.android.synthetic.main.fragment_characters_details.view.*
 import javax.inject.Inject
 
 
@@ -28,12 +29,13 @@ class CharactersDetailsFragment : BaseFragment() {
     private lateinit var characterDetailTypeAdapter: CharacterDetailTypeAdapter
     private lateinit var viewModel: CharactersDetailsViewModel
     private var characterId: Long = 0
+    private lateinit var mBinding: ViewDataBinding
+
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
     }
 
-    private lateinit var mBinding: ViewDataBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -71,8 +73,8 @@ class CharactersDetailsFragment : BaseFragment() {
 
     private fun initRecyclerView() {
         characterDetailTypeAdapter = CharacterDetailTypeAdapter(requireContext())
-        rvCharactersDetailsList.layoutManager = LinearLayoutManager(context)
-        rvCharactersDetailsList.adapter = characterDetailTypeAdapter
+        mBinding.root.rvCharactersDetailsList.layoutManager = LinearLayoutManager(context)
+        mBinding.root.rvCharactersDetailsList.adapter = characterDetailTypeAdapter
         characterDetailTypeAdapter.notifyDataSetChanged()
     }
 
@@ -119,9 +121,9 @@ class CharactersDetailsFragment : BaseFragment() {
     }
 
     private fun showLoadingIndicator(loading: Boolean) = if (loading) {
-        pbLoading.visibility = View.VISIBLE
+        mBinding.root.pbLoading.visibility = View.VISIBLE
     } else {
-        pbLoading.visibility = View.GONE
+        mBinding.root.pbLoading.visibility = View.GONE
     }
 
 

@@ -18,7 +18,7 @@ import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.InternetUtil
 import com.openbank.domain.model.CharacterListModel
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_characters.*
+import kotlinx.android.synthetic.main.fragment_characters.view.*
 import javax.inject.Inject
 
 class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
@@ -26,6 +26,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     private lateinit var viewModel: CharactersListViewModel
     private lateinit var charactersAdapter: CharactersAdapter
     private lateinit var charactersListActivity: CharactersListActivity
+    private lateinit var mBinding:ViewDataBinding
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -42,10 +43,11 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val mBinding = DataBindingUtil.inflate<ViewDataBinding>(
+         mBinding = DataBindingUtil.inflate<ViewDataBinding>(
             inflater, R.layout.fragment_characters,
             container, false
         )
+
         return mBinding.root
     }
 
@@ -76,9 +78,8 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
     private fun initRecyclerView() {
         charactersAdapter = CharactersAdapter(this)
-
-        rvCharactersList.layoutManager = LinearLayoutManager(context)
-        rvCharactersList.adapter = charactersAdapter
+        mBinding.root.rvCharactersList.layoutManager = LinearLayoutManager(context)
+        mBinding.root.rvCharactersList.adapter = charactersAdapter
         charactersAdapter.notifyDataSetChanged()
 
     }
@@ -126,7 +127,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     }
 
     override fun onCharacterSelected(result: CharacterListModel?) {
-        var bundle = bundleOf(
+        val bundle = bundleOf(
             CharactersListActivity.ARG_CHARACTER_ID to result?.characterId,
             CharactersListActivity.ARG_CHARACTER_NAME to result?.characterName
         )
@@ -135,8 +136,8 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     }
 
     private fun showLoadingIndicator(loading: Boolean) = if (loading) {
-        pbLoading.visibility = View.VISIBLE
+        mBinding.root.pbLoading.visibility = View.VISIBLE
     } else {
-        pbLoading.visibility = View.GONE
+        mBinding.root.pbLoading.visibility = View.GONE
     }
 }
