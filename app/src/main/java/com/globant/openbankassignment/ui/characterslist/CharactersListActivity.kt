@@ -17,7 +17,7 @@ class CharactersListActivity : AppCompatActivity() {
     }
 
     companion object{
-        const val ARGUM_CHARACTERID="characterId"
-        const val ARGUM_CHARACTERNAME="characterName"
+        const val ARG_CHARACTER_ID="characterId"
+        const val ARG_CHARACTER_NAME="characterName"
     }
 }

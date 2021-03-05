@@ -20,7 +20,6 @@ class CharactersAdapter(
 
     private var characterList: List<CharacterListModel> = emptyList()
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersListHolder {
 
         val binding = RowItemCharactersListBinding.inflate(

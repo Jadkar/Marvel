@@ -13,20 +13,18 @@ class CharactersListViewModel @Inject constructor(private val useCaseCharactersL
     BaseViewModel() {
 
     lateinit var disposableObserverCharacters: DisposableObserver<List<CharacterListModel>>
-    var getCharactersFailure: MutableLiveData<String> = MutableLiveData()
+    internal var getCharactersFailure: MutableLiveData<String> = MutableLiveData()
 
-    var charactersResponse: MutableLiveData<List<CharacterListModel>> = MutableLiveData()
+    internal var charactersResponse: MutableLiveData<List<CharacterListModel>> = MutableLiveData()
 
     fun getCharactersList(offSet: Int) {
 
         disposableObserverCharacters = object : DisposableObserver<List<CharacterListModel>>() {
             override fun onComplete() {
             }
-
             override fun onError(e: Throwable) {
                 getCharactersFailure.postValue(e.message)
             }
-
             override fun onNext(t: List<CharacterListModel>) {
                 charactersResponse.postValue(t)
 
@@ -38,6 +36,4 @@ class CharactersListViewModel @Inject constructor(private val useCaseCharactersL
             .subscribe(disposableObserverCharacters)
 
     }
-
-
 }

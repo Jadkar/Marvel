@@ -8,23 +8,19 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
-import com.openbank.domain.model.CharacterListModel
 import com.globant.openbankassignment.ui.base.BaseFragment
 import com.globant.openbankassignment.utils.InternetUtil
+import com.openbank.domain.model.CharacterListModel
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_characters.*
 import javax.inject.Inject
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
     private lateinit var viewModel: CharactersListViewModel
@@ -58,7 +54,6 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
 
         initRecyclerView()
         getCharactersList()
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +67,6 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         super.onResume()
         (activity as CharactersListActivity).supportActionBar?.title =
             getString(R.string.charactersList_fragment_label)
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -81,7 +75,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     }
 
     private fun initRecyclerView() {
-        charactersAdapter = CharactersAdapter( this)
+        charactersAdapter = CharactersAdapter(this)
 
         rvCharactersList.layoutManager = LinearLayoutManager(context)
         rvCharactersList.adapter = charactersAdapter
@@ -93,8 +87,11 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         if (InternetUtil.isInternetConnected()) {
             showLoadingIndicator(true)
             viewModel.getCharactersList(0)
-        }else{
-            showAlertMessage(getString(R.string.lbl_error_msg),getString(R.string.lbl_msg_no_internet_connection))
+        } else {
+            showAlertMessage(
+                getString(R.string.lbl_error_msg),
+                getString(R.string.lbl_msg_no_internet_connection)
+            )
             InternetUtil.observe(viewLifecycleOwner, Observer { status ->
                 if (status != null && status) {
                     showLoadingIndicator(true)
@@ -108,29 +105,30 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         viewModel.charactersResponse.observe(viewLifecycleOwner, Observer {
             showLoadingIndicator(false)
             if (it != null) handleViewState(it)
-            else showAlertMessage("",getString(R.string.lbl_no_data))
+            else showAlertMessage("", getString(R.string.lbl_no_data))
         })
 
         viewModel.getCharactersFailure.observe(viewLifecycleOwner, Observer<String> {
             showLoadingIndicator(false)
-            if (!InternetUtil.isInternetConnected())
-            {
-                showAlertMessage(getString(R.string.lbl_internet_title),getString(R.string.lbl_msg_no_internet_connection))
-            }else{
-                showAlertMessage(getString(R.string.lbl_error_msg),it)
+            if (!InternetUtil.isInternetConnected()) {
+                showAlertMessage(
+                    getString(R.string.lbl_internet_title),
+                    getString(R.string.lbl_msg_no_internet_connection)
+                )
+            } else {
+                showAlertMessage(getString(R.string.lbl_error_msg), it)
             }
         })
     }
 
     private fun handleViewState(characterMapperList: List<CharacterListModel>) {
         charactersAdapter.setCharactersData(characterMapperList)
-
     }
 
     override fun onCharacterSelected(result: CharacterListModel?) {
         var bundle = bundleOf(
-            CharactersListActivity.ARGUM_CHARACTERID to result?.characterId,
-            CharactersListActivity.ARGUM_CHARACTERNAME to result?.characterName
+            CharactersListActivity.ARG_CHARACTER_ID to result?.characterId,
+            CharactersListActivity.ARG_CHARACTER_NAME to result?.characterName
         )
         view?.findNavController()
             ?.navigate(R.id.action_CharacterFragment_to_CharacterDetailsFragment, bundle)
@@ -139,6 +137,6 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     private fun showLoadingIndicator(loading: Boolean) = if (loading) {
         pbLoading.visibility = View.VISIBLE
     } else {
-       pbLoading.visibility = View.GONE
+        pbLoading.visibility = View.GONE
     }
 }
