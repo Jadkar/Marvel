@@ -3,7 +3,7 @@ package com.globant.openbankassignment.data.di.component
 import com.globant.openbankassignment.data.di.module.ActivityModule
 import com.globant.openbankassignment.data.di.module.FragmentModule
 import com.globant.openbankassignment.data.di.module.ViewModelModule
-import com.openbank.data.data.di.module.*
+import com.openbank.data.module.*
 import com.globant.openbankassignment.utils.MarvelApplication
 import com.openbank.domain.di.UseCaseModule
 import dagger.BindsInstance
