@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.data.entity.Item
+import com.openbank.data.data.entity.Item
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeItemBinding
 import com.openbank.domain.uimodel.ItemUiModel
 

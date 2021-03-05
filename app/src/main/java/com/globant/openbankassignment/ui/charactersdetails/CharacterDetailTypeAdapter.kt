@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.globant.openbankassignment.data.entity.Item
+import com.openbank.data.data.entity.Item
 import com.openbank.domain.uimodel.CharacterDetailsUiModel
 import com.openbank.domain.uimodel.CharactersDeatilsType
 import com.openbank.domain.uimodel.DetailCharacterConvertor

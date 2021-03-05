@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.openbank.domain.uimodel.CharacterListUiModel
-import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
-import com.globant.openbankassignment.data.source.remote.MarvelApi
+import com.openbank.data.data.repository.GetCharactersRepositoryImpl
+import com.openbank.data.data.source.remote.MarvelApi
 import com.globant.openbankassignment.testutil.InstantExecutorExtension
 import com.globant.openbankassignment.testutil.LiveDataTestUtil
 import com.globant.openbankassignment.testutil.RxImmediateSchedulerRule

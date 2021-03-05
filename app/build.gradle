@@ -51,6 +51,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.ext.navigationFragment"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.ext.navigationFragment"
     implementation project(path: ':domain')
+    implementation project(path: ':data')
     testImplementation rootProject.ext.junit
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'

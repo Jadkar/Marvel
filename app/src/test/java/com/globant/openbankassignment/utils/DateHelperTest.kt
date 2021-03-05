@@ -10,13 +10,13 @@ class DateHelperTest  {
 
     @Test
     fun testGetCurrentTimestampNotNull() {
-        assertNotNull(DateHelper.getCurrentTimestamp())
+        assertNotNull(com.openbank.data.data.utils.DateHelper.getCurrentTimestamp())
     }
 
     @Test
     fun testGetCurrentTimestamp(){
         var result=getFakeCurrentTimeStamp()
-        Assertions.assertEquals(result, DateHelper.getCurrentTimestamp())
+        Assertions.assertEquals(result, com.openbank.data.data.utils.DateHelper.getCurrentTimestamp())
     }
     @Test
     fun testCalculateHash() {
@@ -24,7 +24,7 @@ class DateHelperTest  {
         var haskKey="testMarvelkeyAssigmnent"
         var dummyResult="177707ff0d3e69b918de8c40a3747a77"
 
-        Assertions.assertEquals(dummyResult, HasKeyGenerator.calculateHash(haskKey))
+        Assertions.assertEquals(dummyResult, com.openbank.data.data.utils.HasKeyGenerator.calculateHash(haskKey))
     }
 
     private fun getFakeCurrentTimeStamp():String{

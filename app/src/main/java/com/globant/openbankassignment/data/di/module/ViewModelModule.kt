@@ -14,12 +14,12 @@ import dagger.multibindings.IntoMap
 internal abstract class ViewModelModule {
     @Binds
     @IntoMap
-    @ViewModelKey(CharactersListViewModel::class)
+    @com.globant.openbankassignment.data.di.module.ViewModelKey(CharactersListViewModel::class)
     internal abstract fun bindCharactersListViewModel(characterListViewModel: CharactersListViewModel):ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(CharactersDetailsViewModel::class)
+    @com.globant.openbankassignment.data.di.module.ViewModelKey(CharactersDetailsViewModel::class)
     internal abstract fun bindCharactersDetailsViewModel(characterDetailsViewModel: CharactersDetailsViewModel):ViewModel
 
 

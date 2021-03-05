@@ -1,8 +1,8 @@
 package com.globant.openbankassignment.domain.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
-import com.globant.openbankassignment.data.source.remote.MarvelApi
+import com.openbank.data.data.repository.GetCharactersRepositoryImpl
+import com.openbank.data.data.source.remote.MarvelApi
 import com.google.gson.Gson
 import com.openbank.domain.entity.MarvelCharactersResponse
 import io.reactivex.Observable

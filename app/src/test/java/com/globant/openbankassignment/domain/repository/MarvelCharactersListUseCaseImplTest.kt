@@ -1,8 +1,8 @@
 package com.globant.openbankassignment.domain.repository
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.globant.openbankassignment.data.mapper.CharacterListMapperImpl
-import com.globant.openbankassignment.data.repository.GetCharactersRepositoryImpl
+import com.openbank.data.data.mapper.CharacterListMapperImpl
+import com.openbank.data.data.repository.GetCharactersRepositoryImpl
 import com.openbank.domain.usecase.MarvelCharactersListUseCaseImpl
 import com.openbank.domain.uimodel.CharacterListUiModel
 import com.globant.openbankassignment.testutil.RxImmediateSchedulerRule
