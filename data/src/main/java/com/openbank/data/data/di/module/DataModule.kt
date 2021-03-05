@@ -14,7 +14,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class ApiModule {
+class DataModule {
 
     @Provides
     @Singleton
