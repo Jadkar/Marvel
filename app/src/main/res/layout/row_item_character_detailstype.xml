@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <import type="android.view.View" />
-
         <variable
             name="characterDetails"
             type="com.openbank.domain.model.CharacterDetailsModel" />

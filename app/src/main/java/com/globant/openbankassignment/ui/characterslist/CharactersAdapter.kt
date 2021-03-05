@@ -49,7 +49,6 @@ class CharactersAdapter(
 
             itemRowBinding.setVariable(BR.characterList, resultData)
 
-
             itemView.setOnClickListener {
                 onCharactersItemClick.onCharacterSelected(resultData)
             }
