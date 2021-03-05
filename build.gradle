@@ -30,7 +30,7 @@ ext {
     //dependencies
     constraintLayoutVersion = '2.0.4'
     navigationFragment = '2.3.3'
-    glideVersion = '3.8.0'
+    glideVersion = '4.4.0'
     multidexVersion = '1.0.3'
     rxJavaVersion = '2.2.19'
     rxAndroidVersion = '2.1.0'
@@ -78,6 +78,10 @@ ext {
     daggerSupport           = "com.google.dagger:dagger-android-support:$daggerVersion"
     daggerCompiler          = "com.google.dagger:dagger-compiler:$daggerVersion"
     daggerAndroidCompiler   = "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    //Glide
+    glide="com.github.bumptech.glide:glide:$glideVersion"
+    glideCompiler="com.github.bumptech.glide:compiler:$glideVersion"
 
     junit = "junit:junit:$junitVersion"
 
