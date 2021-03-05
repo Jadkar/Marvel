@@ -21,7 +21,7 @@ interface AppComponent:AndroidInjector<MarvelApplication> {
     @Component.Builder
     interface Builder{
         @BindsInstance
-        fun application(application: MarvelApplication):AppComponent.Builder
+        fun application(application: MarvelApplication):Builder
 
         fun build():AppComponent
     }

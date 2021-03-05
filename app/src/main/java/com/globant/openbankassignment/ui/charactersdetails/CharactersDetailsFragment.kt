@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.globant.openbankassignment.R
 import com.globant.openbankassignment.ui.base.BaseFragment
@@ -17,7 +16,6 @@ import com.globant.openbankassignment.ui.characterslist.CharactersListActivity
 import com.globant.openbankassignment.utils.InternetUtil
 import com.openbank.domain.model.CharacterDetailsModel
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_characters_details.*
 import kotlinx.android.synthetic.main.fragment_characters_details.view.*
 import javax.inject.Inject
 

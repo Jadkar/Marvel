@@ -65,7 +65,7 @@ class CharactersAdapter(
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .priority(Priority.HIGH)
                 .placeholder(R.drawable.marvel)
-            Glide.with(view.getContext())
+            Glide.with(view.context)
                 .load(imageUrl).apply(options)
                 .into(view)
         }

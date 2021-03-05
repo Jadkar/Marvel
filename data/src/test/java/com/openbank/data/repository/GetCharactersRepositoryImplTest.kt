@@ -1,7 +1,6 @@
 package com.openbank.data.repository
 
 import com.openbank.data.remote.GetCharacterListRemoteSource
-import com.openbank.data.repository.GetCharactersRepositoryImpl
 import com.openbank.domain.repository.GetCharactersRepository
 import org.junit.Before
 import org.junit.Test

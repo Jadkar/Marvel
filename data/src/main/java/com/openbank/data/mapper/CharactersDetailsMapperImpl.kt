@@ -101,7 +101,7 @@ class CharactersDetailsMapperImpl @Inject constructor() :
         val jsonInitemUrl =
             Gson().toJsonTree(marvelCharactersResponse?.data?.results?.get(0)?.urls!!)
 
-        val type: Type = object : TypeToken<List<UrlModel?>?>() {}.getType()
+        val type: Type = object : TypeToken<List<UrlModel?>?>() {}.type
 
         val itemUrl: List<UrlModel> = Gson().fromJson(jsonInitemUrl, type)
 
