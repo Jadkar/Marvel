@@ -50,7 +50,7 @@ class CharactersDetailsFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel =
-            ViewModelProviders.of(this, viewModelFactory)
+            ViewModelProvider(this, viewModelFactory)
                 .get(CharactersDetailsViewModel::class.java)
         characterId = arguments?.getLong(CharactersListActivity.ARG_CHARACTER_ID)!!
         (activity as CharactersListActivity).supportActionBar?.title =
@@ -63,7 +63,6 @@ class CharactersDetailsFragment : BaseFragment() {
 
         initRecyclerView()
         getCharactersDetailsList()
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

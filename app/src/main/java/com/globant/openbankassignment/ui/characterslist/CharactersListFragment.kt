@@ -61,8 +61,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel =
-            ViewModelProviders.of(this, viewModelFactory).get(CharactersListViewModel::class.java)
-
+            ViewModelProvider(this, viewModelFactory).get(CharactersListViewModel::class.java)
     }
 
     override fun onResume() {

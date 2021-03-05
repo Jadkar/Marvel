@@ -15,7 +15,6 @@ import javax.inject.Singleton
 @Module
 class UseCaseModule {
 
-
     @Provides
     @Singleton
     fun provideMarvelCharactersListUseCase(
@@ -23,7 +22,6 @@ class UseCaseModule {
     ): MarvelCharactersListUseCase {
         return MarvelCharactersListUseCaseImpl(repository)
     }
-
     @Provides
     @Singleton
     fun provideMarvelCharactersDetailsUseCase(
