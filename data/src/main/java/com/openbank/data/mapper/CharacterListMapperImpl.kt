@@ -9,16 +9,16 @@ class CharacterListMapperImpl @Inject constructor():
     CharacterListMapper {
 
     override fun getCharactersListUiModel(marvelCharactersResponse: MarvelCharactersResponse):List<CharacterListModel>{
-        var characterListMapperArray = ArrayList<CharacterListModel>()
+        val characterListMapperArray = ArrayList<CharacterListModel>()
         if (marvelCharactersResponse.data?.results?.size!! > 0) {
             for (result in marvelCharactersResponse.data?.results!!) {
-                var characterListMapper =
+                val characterListMapper =
                     CharacterListModel()
                 characterListMapper.characterName = result.name
                 characterListMapper.characterId = result.id
                 characterListMapper.characterDescription = result.description
                 characterListMapper.characterUrl =
-                    result?.thumbnail?.path + "." + result?.thumbnail?.extension
+                    result.thumbnail?.path + "." + result.thumbnail?.extension
 
                 characterListMapperArray.add(characterListMapper)
             }
