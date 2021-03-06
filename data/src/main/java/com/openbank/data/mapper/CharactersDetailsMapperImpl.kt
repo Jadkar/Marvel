@@ -6,9 +6,8 @@ import com.google.gson.reflect.TypeToken
 import com.openbank.data.entity.MarvelCharactersResponse
 import com.openbank.domain.model.*
 import java.lang.reflect.Type
-import javax.inject.Inject
 
-class CharactersDetailsMapperImpl @Inject constructor() :
+class CharactersDetailsMapperImpl  :
     CharactersDetailsMapper {
 
     override fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse): List<CharacterDetailsModel> {
