@@ -1,9 +1,7 @@
 package com.openbank.data.entity
 
 
-class Comics {
+data class Comics (
 
-    var items: List<Item>? =
-        null
-
-}
+    var items: List<Item>? = null
+)

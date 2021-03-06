@@ -27,6 +27,4 @@ internal class GetCharactersRepositoryImplTest {
 
         Mockito.verify(getCharacterListRemoteSource).getMarvelCharacterList(0)
     }
-
-
 }

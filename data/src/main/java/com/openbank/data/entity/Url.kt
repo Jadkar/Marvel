@@ -1,9 +1,7 @@
 package com.openbank.data.entity
 
-class Url {
+data class Url (
 
-    var type: String? = null
-
+    var type: String? = null,
     var url: String? = null
-
-}
+)

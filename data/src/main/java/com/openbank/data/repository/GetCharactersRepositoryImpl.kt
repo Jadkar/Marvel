@@ -11,5 +11,4 @@ class GetCharactersRepositoryImpl @Inject constructor(private val getCharacterLi
     override fun getCharacters(offset: Int): Observable<List<CharacterListModel>> {
         return getCharacterListRemoteSource.getMarvelCharacterList(offset)
     }
-
 }

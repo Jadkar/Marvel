@@ -1,10 +1,8 @@
 package com.openbank.data.entity
 
-class StoriesItem {
+data class StoriesItem (
 
-    var resourceURI: String? = null
-
-    var name: String? = null
+    var resourceURI: String? = null,
+    var name: String? = null,
     var type: String? = null
-
-}
+)
