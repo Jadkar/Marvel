@@ -38,7 +38,7 @@ class CharactersDetailsMapperImpl  :
             val characterSeriesTitle: String? = CharactersDeatilsType.SERIES.value
 
             val jsonInitemSeries: String =
-                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.series!!)
+                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.series!!)
 
             val itemSeries: SeriesModel =
                 Gson().fromJson(jsonInitemSeries, SeriesModel::class.java)
@@ -59,7 +59,7 @@ class CharactersDetailsMapperImpl  :
             val characterStoriesTitle: String? = CharactersDeatilsType.STORIES.value
 
             val jsonInitemStories: String =
-                Gson().toJson(marvelCharactersResponse?.data?.results?.get(0)?.stories!!)
+                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.stories!!)
 
             val itemStories: StoriesModel =
                 Gson().fromJson(jsonInitemStories, StoriesModel::class.java)

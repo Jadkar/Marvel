@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DateHelperTest  {
+class UtilsTest  {
 
     @Test
     fun testGetCurrentTimestampNotNull() {
