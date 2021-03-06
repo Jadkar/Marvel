@@ -1,6 +1,5 @@
 package com.openbank.data.mapper
 
-
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.openbank.data.entity.MarvelCharactersResponse
@@ -32,7 +31,7 @@ class CharactersDetailsMapperImpl  :
         }
 
         //Series
-        if (marvelCharactersResponse.data?.results?.get(0)?.series?.items != null && marvelCharactersResponse?.data?.results?.get(
+        if (marvelCharactersResponse.data?.results?.get(0)?.series?.items != null && marvelCharactersResponse.data?.results?.get(
                 0
             )?.series?.items?.size!! > 0
         ) {

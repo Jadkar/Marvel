@@ -13,7 +13,7 @@ internal class GetCharactersRepositoryImplTest {
     @Mock
     lateinit var getCharacterListRemoteSource: GetCharacterListRemoteSource
 
-    lateinit var getCharactersRepository: GetCharactersRepository
+    private lateinit var getCharactersRepository: GetCharactersRepository
 
     @Before
     fun setUp() {

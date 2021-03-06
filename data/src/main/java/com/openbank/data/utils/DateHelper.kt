@@ -6,7 +6,7 @@ import java.util.*
 object DateHelper {
 
     fun getCurrentTimestamp(): String? {
-        return SimpleDateFormat("yyyy-MM-dd HH:mm").format(
+        return SimpleDateFormat("yyyy-MM-dd HH:mm",Locale.US).format(
             Calendar
                 .getInstance().time
         )

@@ -6,11 +6,11 @@ import java.security.NoSuchAlgorithmException
 object HasKeyGenerator {
 
     fun calculateHash(hashString: String): String? {
-        val MD5 = "MD5"
+        val mD5 = "MD5"
         try {
             // Create MD5 Hash
             val digest = MessageDigest
-                .getInstance(MD5)
+                .getInstance(mD5)
             digest.update(hashString.toByteArray())
             val messageDigest = digest.digest()
 

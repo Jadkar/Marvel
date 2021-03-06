@@ -12,7 +12,7 @@ import javax.inject.Inject
 class CharactersListViewModel @Inject constructor(private val useCaseCharactersList: MarvelCharactersListUseCase) :
     BaseViewModel() {
 
-    lateinit var disposableObserverCharacters: DisposableObserver<List<CharacterListModel>>
+    private lateinit var disposableObserverCharacters: DisposableObserver<List<CharacterListModel>>
     internal var getCharactersFailure: MutableLiveData<String> = MutableLiveData()
 
     internal var charactersResponse: MutableLiveData<List<CharacterListModel>> = MutableLiveData()

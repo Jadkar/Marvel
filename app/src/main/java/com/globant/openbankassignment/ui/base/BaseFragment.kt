@@ -1,8 +1,8 @@
 package com.globant.openbankassignment.ui.base
 
-import android.R
 import android.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.globant.openbankassignment.R
 
 open class BaseFragment: Fragment() {
 
@@ -10,7 +10,8 @@ open class BaseFragment: Fragment() {
        AlertDialog.Builder(context)
            .setTitle(title)
            .setMessage(message)
-           .setPositiveButton(R.string.ok
+           .setPositiveButton(
+               R.string.lbl_ok
            ) { dialog, which ->
 
                dialog.dismiss()
