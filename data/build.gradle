@@ -82,4 +82,6 @@ dependencies {
     testImplementation "io.mockk:mockk:$mockito_version_kotlin"
 
     testImplementation rootProject.ext.hamcrest
+
+    implementation rootProject.ext.rxAndroid
 }
