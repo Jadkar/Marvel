@@ -28,6 +28,7 @@ class GetCharacterListRemoteSourceImplTest {
 
     @Mock
     lateinit var marvelApi: MarvelApi
+
     @Mock
     lateinit var characterListMapper:CharacterListMapper
 

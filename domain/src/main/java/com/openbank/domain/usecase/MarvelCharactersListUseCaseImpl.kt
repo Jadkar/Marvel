@@ -14,5 +14,4 @@ class MarvelCharactersListUseCaseImpl @Inject constructor(
         return repository.getCharacters(offSet)
     }
 
-
 }

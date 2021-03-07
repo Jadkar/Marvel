@@ -76,12 +76,11 @@ dependencies {
     testRuntimeOnly rootProject.ext.junitjupiterengine
 
     // -------- MOCKITO
-    def mockito_version = "2.19.0"
-    testImplementation "org.mockito:mockito-core:$mockito_version"
-    def mockito_version_kotlin = "1.10.0"
-    testImplementation "io.mockk:mockk:$mockito_version_kotlin"
+    testImplementation rootProject.ext.mockito
+    testImplementation rootProject.ext.mockitoKotlin
 
     testImplementation rootProject.ext.hamcrest
+
 
     implementation rootProject.ext.rxAndroid
 }

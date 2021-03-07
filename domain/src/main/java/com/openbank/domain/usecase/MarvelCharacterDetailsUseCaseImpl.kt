@@ -11,10 +11,6 @@ class MarvelCharacterDetailsUseCaseImpl @Inject constructor(
 ) : MarvelCharactersDetailsUseCase {
 
     override fun getCharactersDetailsList(characterId: Long): Observable<List<CharacterDetailsModel>> {
-
         return repository.getCharactersDetailsById(characterId)
-
     }
-
-
 }

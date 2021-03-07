@@ -7,11 +7,9 @@ import org.hamcrest.Matchers
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
-
 internal class CharactersDetailsMapperImplTest {
 
-    lateinit var characterListDetailsMapperImpl: CharactersDetailsMapperImpl
+    private lateinit var characterListDetailsMapperImpl: CharactersDetailsMapperImpl
     @BeforeEach
     fun setUp() {
         characterListDetailsMapperImpl=CharactersDetailsMapperImpl()

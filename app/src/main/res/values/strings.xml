@@ -7,6 +7,6 @@
     <string name="lbl_error_msg">Error..</string>
     <string name="lbl_internet_title">Network Error</string>
     <string name="lbl_no_data">No quick filter found. Please try again later</string>
-    <string name="lbl_ok">Ok</string>
+    <string name="lbl_ok">OK</string>
     <string name="lbl_msg_no_internet_connection">  "No internet connection found. Please connect to internet and try again."</string>
 </resources>

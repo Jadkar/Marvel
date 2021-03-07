@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "com.android.tools.build:gradle:4.1.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -50,7 +50,7 @@ ext {
     junitVersion = '4.12'
     junitParamsVersion = '1.1.1'
     hamcrestVersion = '2.2'
-    mockitoVersion = '2.8.9'
+    mockitoVersion = '3.5.13'
     mockitoKotlinVersion = '2.0.0-RC1'
 
 
@@ -89,6 +89,10 @@ ext {
     junitjupiterparam="org.junit.jupiter:junit-jupiter-params:$junit_jupiter_version"
     junitjupiterengine="org.junit.jupiter:junit-jupiter-engine:$junit_jupiter_version"
     junit = "junit:junit:$junitVersion"
+
+    // mockito
+    mockito="org.mockito:mockito-core:$mockitoVersion"
+    mockitoKotlin="io.mockk:mockk:$mockitoKotlinVersion"
 
 }
 

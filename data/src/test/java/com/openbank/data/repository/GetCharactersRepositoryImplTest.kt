@@ -1,7 +1,5 @@
 package com.openbank.data.repository
 
-import com.google.gson.Gson
-import com.openbank.data.entity.MarvelCharactersResponse
 import com.openbank.data.remote.GetCharacterListRemoteSource
 import com.openbank.domain.model.CharacterListModel
 import com.openbank.domain.repository.GetCharactersRepository
