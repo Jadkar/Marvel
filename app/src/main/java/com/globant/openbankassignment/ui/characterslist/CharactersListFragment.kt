@@ -20,7 +20,7 @@ import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_characters.view.*
 import javax.inject.Inject
 
-class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
+class CharactersListFragment : BaseFragment() {
 
     private lateinit var viewModel: CharactersListViewModel
     private lateinit var charactersAdapter: CharactersAdapter
@@ -75,7 +75,9 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
     }
 
     private fun initRecyclerView() {
-        charactersAdapter = CharactersAdapter(this)
+        charactersAdapter = CharactersAdapter { characterListModel: CharacterListModel? ->
+            onCharacterSelected(characterListModel)
+        }
         mBinding.root.rvCharactersList.layoutManager = LinearLayoutManager(context)
         mBinding.root.rvCharactersList.adapter = charactersAdapter
         charactersAdapter.notifyDataSetChanged()
@@ -124,7 +126,7 @@ class CharactersListFragment : BaseFragment(), OnCharactersItemClick {
         charactersAdapter.setCharactersData(characterMapperList)
     }
 
-    override fun onCharacterSelected(result: CharacterListModel?) {
+     private fun onCharacterSelected(result: CharacterListModel?) {
         val bundle = bundleOf(
             CharactersListActivity.ARG_CHARACTER_ID to result?.characterId,
             CharactersListActivity.ARG_CHARACTER_NAME to result?.characterName

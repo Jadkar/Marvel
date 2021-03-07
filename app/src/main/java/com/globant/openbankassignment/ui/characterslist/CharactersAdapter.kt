@@ -15,7 +15,7 @@ import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 import com.openbank.domain.model.CharacterListModel
 
 class CharactersAdapter(
-    private val onCharactersItemClick: OnCharactersItemClick
+    private val onCharactersItemClick : (CharacterListModel?) ->Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
     private var characterList: List<CharacterListModel> = emptyList()
@@ -45,12 +45,12 @@ class CharactersAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(resultData: CharacterListModel?, onCharactersItemClick: OnCharactersItemClick) {
+        fun bind(resultData: CharacterListModel?, onCharactersItemClick: (CharacterListModel) -> Unit) {
 
             itemRowBinding.setVariable(BR.characterList, resultData)
 
             itemView.setOnClickListener {
-                onCharactersItemClick.onCharacterSelected(resultData)
+                onCharactersItemClick(resultData)
             }
         }
     }
