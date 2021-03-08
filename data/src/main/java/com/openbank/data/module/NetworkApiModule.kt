@@ -28,10 +28,6 @@ class NetworkApiModule {
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
 
-        if (BuildConfig.DEBUG) {
-            builder.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        }
-
         builder.addInterceptor { chain ->
             val original = chain.request()
             val originalHttpUrl = original.url
