@@ -1,4 +1,4 @@
-package com.globant.openbankassignment.data.di.module
+package com.globant.openbankassignment.di.module
 
 import com.globant.openbankassignment.ui.charactersdetails.CharactersDetailsFragment
 import com.globant.openbankassignment.ui.characterslist.CharactersListFragment

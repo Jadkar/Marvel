@@ -6,109 +6,111 @@ import com.openbank.data.entity.MarvelCharactersResponse
 import com.openbank.domain.model.*
 import java.lang.reflect.Type
 
-class CharactersDetailsMapperImpl  :
+class CharactersDetailsMapperImpl :
     CharactersDetailsMapper {
 
     override fun getCharactersDetailUiModel(marvelCharactersResponse: MarvelCharactersResponse): List<CharacterDetailsModel> {
         val characterDetailsMapper = ArrayList<CharacterDetailsModel>()
 
         // Comics
-        if (marvelCharactersResponse.data?.results?.get(0)?.comics?.items != null && marvelCharactersResponse.data?.results?.get(
-                0
-            )?.comics?.items?.size!! > 0
-        ) {
-            val characterComicsTitle: String? = CharactersDeatilsType.COMICS.value
+        marvelCharactersResponse.data?.results?.get(0)?.comics?.items?.let {
+            if (marvelCharactersResponse.data?.results?.get(0)?.comics?.items?.size ?: 0 > 0) {
+                val characterComicsTitle: String? = CharactersDeatilsType.COMICS.value
 
-            val jsonInString: String =
-                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.comics!!)
-            val itemComics: ComicsModel = Gson().fromJson(jsonInString, ComicsModel::class.java)
+                val jsonInString: String =
+                    Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.comics)
+                val itemComics: ComicsModel = Gson().fromJson(jsonInString, ComicsModel::class.java)
 
-            val characterDetailsComics =
-                CharacterDetailsModel()
-            characterDetailsComics.title = characterComicsTitle
-            characterDetailsComics.comics = itemComics
-            characterDetailsMapper.add(characterDetailsComics)
+                val characterDetailsComics =
+                    CharacterDetailsModel()
+                characterDetailsComics.title = characterComicsTitle
+                characterDetailsComics.comics = itemComics
+                characterDetailsMapper.add(characterDetailsComics)
+            }
         }
-
         //Series
-        if (marvelCharactersResponse.data?.results?.get(0)?.series?.items != null && marvelCharactersResponse.data?.results?.get(
-                0
-            )?.series?.items?.size!! > 0
-        ) {
-            val characterSeriesTitle: String? = CharactersDeatilsType.SERIES.value
+        marvelCharactersResponse.data?.results?.get(0)?.series?.items.let {
+            if (marvelCharactersResponse.data?.results?.get(0)?.series?.items?.size ?: 0 > 0) {
+                val characterSeriesTitle: String? = CharactersDeatilsType.SERIES.value
 
-            val jsonInitemSeries: String =
-                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.series!!)
+                val jsonInItemSeries: String =
+                    Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.series)
 
-            val itemSeries: SeriesModel =
-                Gson().fromJson(jsonInitemSeries, SeriesModel::class.java)
+                val itemSeries: SeriesModel =
+                    Gson().fromJson(jsonInItemSeries, SeriesModel::class.java)
 
-            val characterDetailsSeries =
-                CharacterDetailsModel()
-            characterDetailsSeries.title = characterSeriesTitle
-            characterDetailsSeries.series = itemSeries
+                val characterDetailsSeries =
+                    CharacterDetailsModel()
+                characterDetailsSeries.title = characterSeriesTitle
+                characterDetailsSeries.series = itemSeries
 
-            characterDetailsMapper.add(characterDetailsSeries)
+                characterDetailsMapper.add(characterDetailsSeries)
+            }
         }
+
 
         //Stories
-        if (marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems != null && marvelCharactersResponse.data?.results?.get(
-                0
-            )?.stories?.storiesItems?.size!! > 0
-        ) {
-            val characterStoriesTitle: String? = CharactersDeatilsType.STORIES.value
+        marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems.let {
+            if (marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems?.size ?: 0 > 0) {
+                val characterStoriesTitle: String? = CharactersDeatilsType.STORIES.value
 
-            val jsonInitemStories: String =
-                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.stories!!)
+                val jsonInItemStories: String =
+                    Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.stories)
 
-            val itemStories: StoriesModel =
-                Gson().fromJson(jsonInitemStories, StoriesModel::class.java)
+                val itemStories: StoriesModel =
+                    Gson().fromJson(jsonInItemStories, StoriesModel::class.java)
 
-            val characterDetailsStories =
-                CharacterDetailsModel()
-            characterDetailsStories.title = characterStoriesTitle
-            characterDetailsStories.stories = itemStories
+                val characterDetailsStories =
+                    CharacterDetailsModel()
+                characterDetailsStories.title = characterStoriesTitle
+                characterDetailsStories.stories = itemStories
 
-            characterDetailsMapper.add(characterDetailsStories)
+                characterDetailsMapper.add(characterDetailsStories)
+            }
         }
 
         //Events
-        if (marvelCharactersResponse.data?.results?.get(0)?.events?.items != null && marvelCharactersResponse.data?.results?.get(
-                0
-            )?.events?.items?.size!! > 0
-        ) {
-            val characterEventsTitle: String? = CharactersDeatilsType.EVENTS.value
+        marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems.let {
+            if (marvelCharactersResponse.data?.results?.get(0)?.stories?.storiesItems?.size ?: 0 > 0) {
+                val characterEventsTitle: String? = CharactersDeatilsType.EVENTS.value
 
-            val jsonInitemEvents: String =
-                Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.events!!)
+                val jsonInItemEvents: String =
+                    Gson().toJson(marvelCharactersResponse.data?.results?.get(0)?.events)
 
-            val itemEvents: EventsModel =
-                Gson().fromJson(jsonInitemEvents, EventsModel::class.java)
+                val itemEvents: EventsModel =
+                    Gson().fromJson(jsonInItemEvents, EventsModel::class.java)
 
-            val characterDetailsEvents =
-                CharacterDetailsModel()
-            characterDetailsEvents.title = characterEventsTitle
-            characterDetailsEvents.events = itemEvents
+                val characterDetailsEvents =
+                    CharacterDetailsModel()
+                characterDetailsEvents.title = characterEventsTitle
+                characterDetailsEvents.events = itemEvents
 
-            characterDetailsMapper.add(characterDetailsEvents)
+                characterDetailsMapper.add(characterDetailsEvents)
+            }
         }
 
         //Details Link URLS
-        val characterUrlsTitle: String? = CharactersDeatilsType.CHARACTERSDETAILSSOURCE.value
+        marvelCharactersResponse.data?.results?.get(0)?.urls?.let {
+            if (marvelCharactersResponse.data?.results?.get(0)?.urls?.size ?: 0 > 0) {
+                val characterUrlsTitle: String? =
+                    CharactersDeatilsType.CHARACTERSDETAILSSOURCE.value
 
-        val jsonInitemUrl =
-            Gson().toJsonTree(marvelCharactersResponse.data?.results?.get(0)?.urls!!)
+                val jsonInitemUrl =
+                    Gson().toJsonTree(marvelCharactersResponse.data?.results?.get(0)?.urls!!)
 
-        val type: Type = object : TypeToken<List<UrlModel?>?>() {}.type
+                val type: Type = object : TypeToken<List<UrlModel?>?>() {}.type
 
-        val itemUrl: List<UrlModel> = Gson().fromJson(jsonInitemUrl, type)
+                val itemUrl: List<UrlModel> = Gson().fromJson(jsonInitemUrl, type)
 
-        val characterDetailsUrls =
-            CharacterDetailsModel()
-        characterDetailsUrls.title = characterUrlsTitle
-        characterDetailsUrls.urls = itemUrl
+                val characterDetailsUrls =
+                    CharacterDetailsModel()
+                characterDetailsUrls.title = characterUrlsTitle
+                characterDetailsUrls.urls = itemUrl
 
-        characterDetailsMapper.add(characterDetailsUrls)
+                characterDetailsMapper.add(characterDetailsUrls)
+            }
+        }
+
 
         return characterDetailsMapper
     }

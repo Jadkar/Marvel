@@ -1,8 +1,8 @@
-package com.globant.openbankassignment.data.di.component
+package com.globant.openbankassignment.di.component
 
-import com.globant.openbankassignment.data.di.module.ActivityModule
-import com.globant.openbankassignment.data.di.module.FragmentModule
-import com.globant.openbankassignment.data.di.module.ViewModelModule
+import com.globant.openbankassignment.di.module.ActivityModule
+import com.globant.openbankassignment.di.module.FragmentModule
+import com.globant.openbankassignment.di.module.ViewModelModule
 import com.openbank.data.module.*
 import com.globant.openbankassignment.utils.MarvelApplication
 import com.openbank.domain.di.UseCaseModule

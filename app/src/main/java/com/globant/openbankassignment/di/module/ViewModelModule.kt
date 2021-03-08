@@ -1,4 +1,4 @@
-package com.globant.openbankassignment.data.di.module
+package com.globant.openbankassignment.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -14,12 +14,12 @@ import dagger.multibindings.IntoMap
 internal abstract class ViewModelModule {
     @Binds
     @IntoMap
-    @com.globant.openbankassignment.data.di.module.ViewModelKey(CharactersListViewModel::class)
+    @com.globant.openbankassignment.di.module.ViewModelKey(CharactersListViewModel::class)
     internal abstract fun bindCharactersListViewModel(characterListViewModel: CharactersListViewModel):ViewModel
 
     @Binds
     @IntoMap
-    @com.globant.openbankassignment.data.di.module.ViewModelKey(CharactersDetailsViewModel::class)
+    @com.globant.openbankassignment.di.module.ViewModelKey(CharactersDetailsViewModel::class)
     internal abstract fun bindCharactersDetailsViewModel(characterDetailsViewModel: CharactersDetailsViewModel):ViewModel
 
 

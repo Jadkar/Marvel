@@ -1,4 +1,4 @@
-package com.globant.openbankassignment.data.di.module
+package com.globant.openbankassignment.di.module
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

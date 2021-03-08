@@ -8,8 +8,9 @@ class CharacterListMapperImpl :
 
     override fun getCharactersListUiModel(marvelCharactersResponse: MarvelCharactersResponse): List<CharacterListModel> {
         val characterListMapperArray = ArrayList<CharacterListModel>()
-        if (marvelCharactersResponse.data?.results?.size!! > 0) {
-            for (result in marvelCharactersResponse.data?.results?: emptyList()) {
+
+        if (marvelCharactersResponse.data?.results?.size ?: 0 > 0) {
+            for (result in marvelCharactersResponse.data?.results ?: emptyList()) {
                 val characterListMapper =
                     CharacterListModel()
                 characterListMapper.characterName = result.name
@@ -21,6 +22,7 @@ class CharacterListMapperImpl :
                 characterListMapperArray.add(characterListMapper)
             }
         }
+
         return characterListMapperArray
     }
 }

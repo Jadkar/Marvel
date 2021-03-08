@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.openbank.domain.model.CharacterDetailsModel
 import com.openbank.domain.model.CharactersDeatilsType
-import com.openbank.domain.model.DetailCharacterConvertor
+import com.openbank.domain.model.DetailCharacterConverter
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeBinding
 import com.openbank.domain.model.ItemModel
 
@@ -52,23 +52,23 @@ class CharacterDetailTypeAdapter(
                 CharactersDeatilsType.COMICS.value -> {
                     // handleComicsView()
                     listItem =
-                        DetailCharacterConvertor.convertComicsItem(characterDetailsModel.comics!!)
+                        DetailCharacterConverter.convertComicsItem(characterDetailsModel.comics!!)
                 }
                 CharactersDeatilsType.SERIES.value -> {
                     listItem =
-                        DetailCharacterConvertor.convertSeriesItem(characterDetailsModel.series!!)
+                        DetailCharacterConverter.convertSeriesItem(characterDetailsModel.series!!)
                 }
                 CharactersDeatilsType.STORIES.value -> {
                     listItem =
-                        DetailCharacterConvertor.convertStoriesItem(characterDetailsModel.stories!!)
+                        DetailCharacterConverter.convertStoriesItem(characterDetailsModel.stories!!)
                 }
                 CharactersDeatilsType.EVENTS.value -> {
                     listItem =
-                        DetailCharacterConvertor.convertEventsItem(characterDetailsModel.events!!)
+                        DetailCharacterConverter.convertEventsItem(characterDetailsModel.events!!)
                 }
                 CharactersDeatilsType.CHARACTERSDETAILSSOURCE.value -> {
                     listItem =
-                        DetailCharacterConvertor.convertUrlsItem(characterDetailsModel.urls!!)
+                        DetailCharacterConverter.convertUrlsItem(characterDetailsModel.urls!!)
                 }
 
             }

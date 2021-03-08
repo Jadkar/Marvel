@@ -6,5 +6,4 @@ package com.openbank.domain.model
         STORIES("Stories"),
         EVENTS("Events"),
         CHARACTERSDETAILSSOURCE("Character Info")
-
 }
