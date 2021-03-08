@@ -1,9 +1,8 @@
 package com.globant.openbankassignment.ui.charactersdetails
 
 import androidx.lifecycle.MutableLiveData
-import com.openbank.domain.model.CharacterDetailsModel
 import com.globant.openbankassignment.ui.base.BaseViewModel
-import com.google.gson.Gson
+import com.openbank.domain.model.CharacterDetailsModel
 import com.openbank.domain.usecase.MarvelCharactersDetailsUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
@@ -25,7 +24,6 @@ class CharactersDetailsViewModel @Inject constructor(private val useCaseImpl: Ma
             }
 
             override fun onNext(t: List<CharacterDetailsModel>) {
-                var jsonCharaterList= Gson().toJson(t)
                 characterDetails.postValue(t)
             }
 

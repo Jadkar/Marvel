@@ -30,7 +30,7 @@ class CharactersAdapter(
     }
 
     override fun onBindViewHolder(holder: CharactersListHolder, position: Int) {
-        holder.bind(characterList[position], onCharactersItemClick)
+        holder.bind(characterList[position])
     }
 
     override fun getItemCount(): Int = characterList.size
@@ -45,7 +45,7 @@ class CharactersAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(resultData: CharacterListModel?, onCharactersItemClick: (CharacterListModel) -> Unit) {
+        fun bind(resultData: CharacterListModel?) {
 
             itemRowBinding.setVariable(BR.characterList, resultData)
 

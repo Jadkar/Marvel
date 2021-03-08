@@ -103,12 +103,10 @@ internal class GetCharacterDetailsRepositoryImplTest {
             21
         )
 
-        val mockedList: List<CharacterDetailsModel> = listOf(
+        return listOf(
             CharacterDetailsModel("Comics", comicsModel),
             CharacterDetailsModel("Series", null, seriesModel),
             CharacterDetailsModel("Stories", null, null, storiesModel)
         )
-
-        return mockedList
     }
 }
