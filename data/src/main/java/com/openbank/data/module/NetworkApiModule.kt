@@ -65,7 +65,7 @@ class NetworkApiModule {
             .create()
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://gateway.marvel.com")
+            .baseUrl(BuildConfig.BASE_API_URL)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
