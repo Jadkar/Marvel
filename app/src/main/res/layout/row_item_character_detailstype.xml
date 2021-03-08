@@ -4,12 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <import type="android.view.View" />
-
         <variable
             name="characterDetails"
-            type="com.globant.openbankassignment.domain.uimodel.CharacterDetailsUiModel" />
+            type="com.openbank.domain.model.CharacterDetailsModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
 import com.globant.openbankassignment.databinding.RowItemCharacterDetailstypeItemBinding
-import com.globant.openbankassignment.domain.entity.Item
+import com.openbank.domain.model.ItemModel
 
 class CharacterDetailsTypeItemAdapter(
-    private val mItemList: List<Item>
+    private val mItemList: List<ItemModel>
 ) : RecyclerView.Adapter<CharacterDetailsTypeItemAdapter.CharactersDetailsTypeItemHolder>() {
 
     override fun onCreateViewHolder(
@@ -33,7 +33,7 @@ class CharacterDetailsTypeItemAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(item: Item) {
+        fun bind(item: ItemModel) {
             itemRowBinding.setVariable(BR.detailListItem,item)
         }
     }

@@ -4,13 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View" />
-        <variable
-            name="characterUrl"
-            type="String" />
         <variable
             name="characterList"
-            type="com.globant.openbankassignment.domain.uimodel.CharacterListUiModel" />
+            type="com.openbank.domain.model.CharacterListModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -37,7 +33,7 @@
                 android:adjustViewBounds="true"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:profileImage="@{characterUrl}"
+                app:profileImage="@{characterList.characterUrl}"
                 tools:src="@drawable/marvel" />
 
             <TextView

@@ -2,16 +2,23 @@ package com.globant.openbankassignment.ui.characterslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.globant.openbankassignment.BR
-import com.globant.openbankassignment.domain.uimodel.CharacterListUiModel
+import com.globant.openbankassignment.R
 import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
+import com.openbank.domain.model.CharacterListModel
 
 class CharactersAdapter(
-    private val onCharactersItemClick: OnCharactersItemClick
+    private val onCharactersItemClick: (CharacterListModel?) -> Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
-    private var characterList: List<CharacterListUiModel> = emptyList()
+    private var characterList: List<CharacterListModel> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersListHolder {
 
@@ -23,12 +30,12 @@ class CharactersAdapter(
     }
 
     override fun onBindViewHolder(holder: CharactersListHolder, position: Int) {
-        holder.bind(characterList[position], onCharactersItemClick)
+        holder.bind(characterList[position])
     }
 
     override fun getItemCount(): Int = characterList.size
 
-    fun setCharactersData(characterList: List<CharacterListUiModel>) {
+    fun setCharactersData(characterList: List<CharacterListModel>) {
         this.characterList = characterList
         notifyDataSetChanged()
     }
@@ -38,15 +45,29 @@ class CharactersAdapter(
             itemRowBinding.root
         ) {
 
-        fun bind(resultData: CharacterListUiModel?, onCharactersItemClick: OnCharactersItemClick) {
+        fun bind(resultData: CharacterListModel?) {
 
             itemRowBinding.setVariable(BR.characterList, resultData)
-            itemRowBinding.characterUrl = resultData?.characterUrl
 
             itemView.setOnClickListener {
-                onCharactersItemClick.onCharacterSelected(resultData)
+                onCharactersItemClick(resultData)
             }
         }
     }
 
+    companion object {
+        @JvmStatic
+        @BindingAdapter("profileImage")
+        fun loadImage(view: ImageView, imageUrl: String?) {
+            val options = RequestOptions()
+
+                .error(R.drawable.marvel)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH)
+                .placeholder(R.drawable.marvel)
+            Glide.with(view.context)
+                .load(imageUrl).apply(options)
+                .into(view)
+        }
+    }
 }
