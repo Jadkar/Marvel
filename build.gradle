@@ -51,7 +51,7 @@ ext {
     junitParamsVersion = '1.1.1'
     hamcrestVersion = '2.2'
     mockitoVersion = '3.5.13'
-    mockitoKotlinVersion = '2.0.0-RC1'
+    mockitoKotlinVersion = '1.10.0'
 
 
     kotlinktx="androidx.core:core-ktx:$kotlinktxVer"

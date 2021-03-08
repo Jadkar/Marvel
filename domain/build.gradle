@@ -27,4 +27,19 @@ dependencies {
     kapt rootProject.ext.daggerCompiler
     kapt rootProject.ext.daggerAndroidCompiler
 
+    testImplementation rootProject.ext.junit
+
+// -------- LOCAL UNIT TESTS (use JUnit5)
+    // JUnit Jupiter
+    testImplementation rootProject.ext.junitjupiterapi
+    testImplementation rootProject.ext.junitjupiterparam
+    testRuntimeOnly rootProject.ext.junitjupiterengine
+
+    // -------- MOCKITO
+    testImplementation rootProject.ext.mockito
+    testImplementation rootProject.ext.mockitoKotlin
+
+    testImplementation rootProject.ext.hamcrest
+
+
 }

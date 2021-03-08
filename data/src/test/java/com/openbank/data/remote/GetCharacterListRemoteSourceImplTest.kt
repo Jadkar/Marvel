@@ -32,10 +32,10 @@ class GetCharacterListRemoteSourceImplTest {
     @Mock
     lateinit var characterListMapper:CharacterListMapper
 
-    private lateinit var getCharacterListRemoteSourceImpl: GetCharacterListRemoteSourceImpl
+    private lateinit var getCharacterListRemoteSourceImpl: GetCharacterListRemoteSource
     @BeforeEach
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
+        MockitoAnnotations.openMocks(this)
         getCharacterListRemoteSourceImpl= GetCharacterListRemoteSourceImpl(marvelApi,characterListMapper)
     }
 

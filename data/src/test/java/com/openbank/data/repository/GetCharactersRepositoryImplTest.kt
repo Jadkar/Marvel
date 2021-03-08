@@ -22,7 +22,7 @@ internal class GetCharactersRepositoryImplTest {
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
+        MockitoAnnotations.openMocks(this)
         getCharactersRepository = GetCharactersRepositoryImpl(getCharacterListRemoteSource)
     }
 
