@@ -11,17 +11,22 @@ import org.junit.jupiter.api.Test
 internal class CharactersDetailsMapperImplTest {
 
     private lateinit var characterListDetailsMapperImpl: CharactersDetailsMapperImpl
+
     @BeforeEach
     fun setUp() {
-        characterListDetailsMapperImpl=CharactersDetailsMapperImpl()
+        characterListDetailsMapperImpl = CharactersDetailsMapperImpl()
     }
 
     @Test
     fun getCharactersDetailUiModel() {
 
-        val marvelCharactersResponse = Gson().fromJson(CharacterListMockData.getCharacterDetails(), MarvelCharactersResponse::class.java)
+        val marvelCharactersResponse = Gson().fromJson(
+            CharacterListMockData.getCharacterDetails(),
+            MarvelCharactersResponse::class.java
+        )
 
-        val result= characterListDetailsMapperImpl.getCharactersDetailUiModel(marvelCharactersResponse)
+        val result =
+            characterListDetailsMapperImpl.getCharactersDetailUiModel(marvelCharactersResponse)
 
         MatcherAssert.assertThat(result.size, Matchers.`is`(4))
         MatcherAssert.assertThat(result[0].title, Matchers.`is`("Comics"))

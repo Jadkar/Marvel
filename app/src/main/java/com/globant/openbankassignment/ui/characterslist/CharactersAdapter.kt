@@ -15,7 +15,7 @@ import com.globant.openbankassignment.databinding.RowItemCharactersListBinding
 import com.openbank.domain.model.CharacterListModel
 
 class CharactersAdapter(
-    private val onCharactersItemClick : (CharacterListModel?) ->Unit
+    private val onCharactersItemClick: (CharacterListModel?) -> Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersListHolder>() {
 
     private var characterList: List<CharacterListModel> = emptyList()

@@ -29,11 +29,24 @@ internal class GetCharactersRepositoryImplTest {
     @Test
     fun testGetCharactersSuccessful() {
 
-        val mockedList:List<CharacterListModel>?= listOf(CharacterListModel("3-D Man","3-D Man is the name of two fictional superheroes appearing in American comic books published by Marvel Comics. ","https://3dman.source.com",1011334L),
-            CharacterListModel("Iron Man","\n" +
-                    "Iron Man is a 2008 American superhero film based on the Marvel Comics character of the same name.","https://ironman.source.com",1011335L))
+        val mockedList: List<CharacterListModel>? = listOf(
+            CharacterListModel(
+                "3-D Man",
+                "3-D Man is the name of two fictional superheroes appearing in American comic books published by Marvel Comics. ",
+                "https://3dman.source.com",
+                1011334L
+            ),
+            CharacterListModel(
+                "Iron Man",
+                "\n" +
+                        "Iron Man is a 2008 American superhero film based on the Marvel Comics character of the same name.",
+                "https://ironman.source.com",
+                1011335L
+            )
+        )
 
-        Mockito.`when`(getCharacterListRemoteSource.getMarvelCharacterList(0)).thenReturn(Observable.just(mockedList))
+        Mockito.`when`(getCharacterListRemoteSource.getMarvelCharacterList(0))
+            .thenReturn(Observable.just(mockedList))
 
         getCharactersRepository.getCharacters(0)
 
