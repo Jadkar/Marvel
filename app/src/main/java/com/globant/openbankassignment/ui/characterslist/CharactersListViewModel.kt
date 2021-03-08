@@ -1,50 +1,39 @@
 package com.globant.openbankassignment.ui.characterslist
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.globant.openbankassignment.data.model.MarvelCharactersResponse
-import com.globant.openbankassignment.domain.repository.GetCharactersRepositoryImpl
+import com.openbank.domain.usecase.MarvelCharactersListUseCase
 import com.globant.openbankassignment.ui.base.BaseViewModel
+import com.openbank.domain.model.CharacterListModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class CharactersListViewModel @Inject constructor( val repository: GetCharactersRepositoryImpl):BaseViewModel() {
+class CharactersListViewModel @Inject constructor(private val useCaseCharactersList: MarvelCharactersListUseCase) :
+    BaseViewModel() {
 
-    private lateinit var disposableObserverCharacters: DisposableObserver<MarvelCharactersResponse>
+    private lateinit var disposableObserverCharacters: DisposableObserver<List<CharacterListModel>>
+    internal var getCharactersFailure: MutableLiveData<String> = MutableLiveData()
 
-     var charactersResponse: MutableLiveData<MarvelCharactersResponse> = MutableLiveData()
-    fun getCharactersList(offSet:Int){
+    internal var charactersResponse: MutableLiveData<List<CharacterListModel>> = MutableLiveData()
 
-       disposableObserverCharacters=object : DisposableObserver<MarvelCharactersResponse>(){
-           override fun onComplete() {
-               Log.d("MarvelCharactersRes","onComplete")
-           }
-           override fun onNext(t: MarvelCharactersResponse) {
-               Log.d("MarvelCharactersRes",t.toString())
-               charactersResponse.postValue(t)
-           }
-           override fun onError(e: Throwable) {
-               Log.d("MarvelCharactersRes",e.toString())
-           }
-       }
-        repository.getCharacters(offSet)
+    fun getCharactersList(offSet: Int) {
+
+        disposableObserverCharacters = object : DisposableObserver<List<CharacterListModel>>() {
+            override fun onComplete() {
+            }
+            override fun onError(e: Throwable) {
+                getCharactersFailure.postValue(e.message)
+            }
+            override fun onNext(t: List<CharacterListModel>) {
+                charactersResponse.postValue(t)
+
+            }
+        }
+        useCaseCharactersList.getCharactersList(offSet)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(disposableObserverCharacters)
 
     }
-
-    fun disposeElements() {
-        if (::disposableObserverCharacters.isInitialized && !disposableObserverCharacters.isDisposed) {
-            disposableObserverCharacters.dispose()
-        }
-
-
-        if (::disposableObserverCharacters.isInitialized && !disposableObserverCharacters.isDisposed) {
-            disposableObserverCharacters.dispose()
-        }
-    }
-
 }
